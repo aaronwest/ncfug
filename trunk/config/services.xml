@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	
+	<!-- address -->
+	<bean id="addressDAO" factory-bean="DAOFactory" factory-method="getAddressDAO">
+		<property name="datasource">
+			<ref bean="datasource" />
+		</property>
+	</bean>
+	<bean id="addressGateway" factory-bean="GatewayFactory" factory-method="getAddressGateway">
+		<property name="datasource">
+			<ref bean="datasource" />
+		</property>
+	</bean>
+	<bean id="addressService" class="org.capitolhillusergroup.address.AddressService">
+		<property name="addressDAO">
+			<ref bean="addressDAO" />
+		</property>
+		<property name="addressGateway">
+			<ref bean="addressGateway" />
+		</property>
+	</bean>
+	
+	<!-- article -->
+	<bean id="articleDAO" factory-bean="DAOFactory" factory-method="getArticleDAO">
+		<property name="datasource">
+			<ref bean="datasource" />
+		</property>
+		<property name="personDAO">
+			<ref bean="personDAO" />
+		</property>
+		<property name="categoryService">
+			<ref bean="categoryService" />
+		</property>
+		<property name="personService">
+			<ref bean="personService" />
+		</property>
+	</bean>
+	<bean id="articleGateway" factory-bean="GatewayFactory" factory-method="getArticleGateway">
+		<property name="datasource">
+			<ref bean="datasource" />
+		</property>
+		<property name="articleService">
+            <ref bean="articleService" />
+        </property>
+	</bean>
+	<bean id="articleService" class="org.capitolhillusergroup.article.ArticleService">
+		<property name="articleDAO">
+			<ref bean="articleDAO" />
+		</property>
+		<property name="articleGateway">
+			<ref bean="articleGateway" />
+		</property>
+		<property name="personService">
+			<ref bean="personService" />
+		</property>
+	</bean>
+	
+	<!-- boardposition -->
+	<bean id="boardPositionDAO" factory-bean="DAOFactory" factory-method="getBoardPositionDAO">
+		<property name="datasource">
+			<ref bean="datasource" />
+		</property>
+	</bean>
+	<bean id="boardPositionGateway" factory-bean="GatewayFactory" factory-method="getBoardPositionGateway">
+		<property name="datasource">
+			<ref bean="datasource" />
+		</property>
+	</bean>
+	<bean id="boardPositionService" class="org.capitolhillusergroup.boardposition.BoardPositionService">
+		<property name="boardPositionDAO">
+			<ref bean="boardPositionDAO" />
+		</property>
+		<property name="boardPositionGateway">
+			<ref bean="boardPositionGateway" />
+		</property>
+	</bean>
+	
+	<!-- book -->
+	<bean id="bookDAO" factory-bean="DAOFactory" factory-method="getBookDAO">
+		<property name="datasource">
+			<ref bean="datasource" />
+		</property>
+		<property name="categoryService">
+			<ref bean="categoryService" />
+		</property>
+		<property name="personService">
+			<ref bean="personService" />
+		</property>
+	</bean>
+	<bean id="bookGateway" factory-bean="GatewayFactory" factory-method="getBookGateway">
+		<property name="datasource">
+			<ref bean="datasource" />
+		</property>
+	</bean>
+	<bean id="bookService" class="org.capitolhillusergroup.book.BookService">
+		<property name="bookDAO">
+			<ref bean="bookDAO" />
+		</property>
+		<property name="bookGateway">
+			<ref bean="bookGateway" />
+		</property>
+	</bean>
+	
+	<!-- category -->
+	<bean id="categoryDAO" factory-bean="DAOFactory" factory-method="getCategoryDAO">
+		<property name="datasource">
+			<ref bean="datasource" />
+		</property>
+	</bean>
+	<bean id="categoryGateway" factory-bean="GatewayFactory" factory-method="getCategoryGateway">
+		<property name="datasource">
+			<ref bean="datasource" />
+		</property>
+	</bean>
+	<bean id="categoryService" class="org.capitolhillusergroup.category.CategoryService">
+		<property name="categoryDAO">
+			<ref bean="categoryDAO" />
+		</property>
+		<property name="categoryGateway">
+			<ref bean="categoryGateway" />
+		</property>
+	</bean>
+	
+	<bean id="captchaService" class="org.lyla.captcha.captchaService" init-method="setup">
+		<constructor-arg name="configFile"><value>${captchaConfigFile}</value></constructor-arg>
+	</bean>
+	
+	<!-- contact -->
+	<bean id="contactService" class="org.capitolhillusergroup.contact.ContactService">
+		<property name="emailService">
+			<ref bean="emailService" />
+		</property>
+		<property name="notificationService">
+			<ref bean="notificationService" />
+		</property>
+	</bean>
+	
+	<!-- datasource -->
+	<bean id="datasource" class="org.capitolhillusergroup.datasource.Datasource">
+		<property name="dsn">
+			<value>${dsn}</value>
+		</property>
+		<property name="dbType">
+			<value>${dbType}</value>
+		</property>
+		<property name="userName">
+			<value>${dbUserName}</value>
+		</property>
+		<property name="password">
+			<value>${dbPassword}</value>
+		</property>
+	</bean>
+	
+	<!-- email -->
+	<bean id="emailService" class="org.capitolhillusergroup.email.EmailService" />
+	
+	<!-- factories -->
+	<bean id="daoFactory"
+		class="org.capitolhillusergroup.factories.DAOFactory">
+		<property name="datasource">
+			<ref bean="datasource" />
+		</property>
+	</bean>
+	<bean id="gatewayFactory" 
+		class="org.capitolhillusergroup.factories.GatewayFactory">
+		<property name="datasource">
+			<ref bean="datasource" />
+		</property>
+	</bean>
+	
+	<!-- filetype -->
+	<bean id="fileTypeDAO" factory-bean="DAOFactory" factory-method="getFileTypeDAO">
+		<property name="datasource">
+			<ref bean="datasource" />
+		</property>
+	</bean>
+	<bean id="fileTypeGateway" factory-bean="GatewayFactory" factory-method="getFileTypeGateway">
+		<property name="datasource">
+			<ref bean="datasource" />
+		</property>
+	</bean>
+	<bean id="fileTypeService" class="org.capitolhillusergroup.filetype.FileTypeService">
+		<property name="fileTypeDAO">
+			<ref bean="fileTypeDAO" />
+		</property>
+		<property name="fileTypeGateway">
+			<ref bean="fileTypeGateway" />
+		</property>
+	</bean>
+	
+	<!-- i18n -->
+	<bean id="resourceBundleService" class="org.capitolhillusergroup.i18n.ResourceBundleService">
+		<property name="resourceBundleFacade">
+			<ref bean="resourceBundleFacade" />
+		</property>
+	</bean>
+	<bean id="resourceBundleFacade" class="org.capitolhillusergroup.i18n.ResourceBundleFacade">
+		<property name="resourceBundle">
+			<ref bean="resourceBundle" />
+		</property>
+		<property name="localeUtils">
+			<ref bean="localeUtils" />
+		</property>
+	</bean>
+	<bean id="resourceBundle" class="org.hastings.locale.ResourceBundle">
+		<property name="rbFile">
+			<value>${rbFile}</value>
+		</property>
+		<property name="rbLocale">
+			<value>${rbLocale}</value>
+		</property>
+	</bean>
+	
+	<bean id="localeUtils" class="org.hastings.locale.utils">
+		<constructor-arg name="rbLocale">
+			<value>${rbLocale}</value>
+		</constructor-arg>
+	</bean>
+	
+	<!-- im -->
+	<bean id="imGateway" factory-bean="GatewayFactory" factory-method="getIMGateway">
+		<property name="datasource">
+			<ref bean="datasource" />
+		</property>
+	</bean>
+	<bean id="imService" class="org.capitolhillusergroup.im.IMService">
+		<property name="imGateway">
+			<ref bean="imGateway" />
+		</property>
+	</bean>
+	
+	<!-- imtype -->
+	<bean id="imTypeDAO" factory-bean="DAOFactory" factory-method="getIMTypeDAO">
+		<property name="datasource">
+			<ref bean="datasource" />
+		</property>
+		<property name="personService">
+			<ref bean="personService" />
+		</property>
+	</bean>
+	<bean id="imTypeGateway" factory-bean="GatewayFactory" factory-method="getIMTypeGateway">
+		<property name="datasource">
+			<ref bean="datasource" />
+		</property>
+	</bean>
+	<bean id="imTypeService" class="org.capitolhillusergroup.imtype.IMTypeService">
+		<property name="imTypeDAO">
+			<ref bean="imTypeDAO" />
+		</property>
+		<property name="imTypeGateway">
+			<ref bean="imTypeGateway" />
+		</property>
+	</bean>
+	
+	<!-- location -->
+	<bean id="locationDAO" factory-bean="DAOFactory" factory-method="getLocationDAO">
+		<property name="datasource">
+			<ref bean="datasource" />
+		</property>
+		<property name="addressService">
+			<ref bean="addressService" />
+		</property>
+	</bean>
+	<bean id="locationGateway" factory-bean="GatewayFactory" factory-method="getLocationGateway">
+		<property name="datasource">
+			<ref bean="datasource" />
+		</property>
+	</bean>
+	<bean id="locationService" class="org.capitolhillusergroup.location.LocationService">
+		<property name="locationDAO">
+			<ref bean="locationDAO" />
+		</property>
+		<property name="locationGateway">
+			<ref bean="locationGateway" />
+		</property>
+		<property name="addressService">
+			<ref bean="addressService" />
+		</property>
+	</bean>
+	
+	<!-- meeting -->
+	<bean id="meetingDAO" factory-bean="DAOFactory" factory-method="getMeetingDAO">
+		<property name="datasource">
+			<ref bean="datasource" />
+		</property>
+		<property name="locationService">
+			<ref bean="locationService" />
+		</property>
+		<property name="presentationService">
+			<ref bean="presentationService" />
+		</property>
+		<property name="resourceBundleFacade">
+			<ref bean="resourceBundleFacade" />
+		</property>
+	</bean>
+	<bean id="meetingGateway" factory-bean="GatewayFactory" factory-method="getMeetingGateway">
+		<property name="datasource">
+			<ref bean="datasource" />
+		</property>
+		<property name="meetingService">
+			<ref bean="meetingService" />
+		</property>
+		<property name="resourceBundleFacade">
+			<ref bean="resourceBundleFacade" />
+		</property>
+	</bean>
+	<bean id="meetingService" class="org.capitolhillusergroup.meeting.MeetingService">
+		<property name="meetingDAO">
+			<ref bean="meetingDAO" />
+		</property>
+		<property name="meetingGateway">
+			<ref bean="meetingGateway" />
+		</property>
+	</bean>
+	
+	<!-- news -->
+	<bean id="newsDAO" factory-bean="DAOFactory" factory-method="getNewsDAO">
+		<property name="datasource">
+			<ref bean="datasource" />
+		</property>
+		<property name="newsService">
+			<ref bean="newsService" />
+		</property>
+	</bean>
+	<bean id="newsGateway" factory-bean="GatewayFactory" factory-method="getNewsGateway">
+		<property name="datasource">
+			<ref bean="datasource" />
+		</property>
+		<property name="newsService">
+			<ref bean="newsService" />
+		</property>
+	</bean>
+	<bean id="newsService" class="org.capitolhillusergroup.news.NewsService">
+		<property name="newsDAO">
+			<ref bean="newsDAO" />
+		</property>
+		<property name="newsGateway">
+			<ref bean="newsGateway" />
+		</property>
+	</bean>
+	
+	<!-- notification -->
+	<bean id="notificationService" class="org.capitolhillusergroup.notification.NotificationService" />
+	
+	<!-- organization -->
+	<bean id="organizationDAO" factory-bean="DAOFactory" factory-method="getOrganizationDAO">
+		<property name="datasource">
+			<ref bean="datasource" />
+		</property>
+	</bean>
+	<bean id="organizationGateway" factory-bean="GatewayFactory" factory-method="getOrganizationGateway">
+		<property name="datasource">
+			<ref bean="datasource" />
+		</property>
+	</bean>
+	<bean id="organizationService" class="org.capitolhillusergroup.organization.OrganizationService">
+		<property name="organizationDAO">
+			<ref bean="organizationDAO" />
+		</property>
+		<property name="organizationGateway">
+			<ref bean="organizationGateway" />
+		</property>
+	</bean>
+	
+	<!-- person -->
+	<bean id="personDAO" factory-bean="DAOFactory" factory-method="getPersonDAO">
+		<property name="datasource">
+			<ref bean="datasource" />
+		</property>
+		<property name="imService">
+			<ref bean="imService" />
+		</property>
+		<property name="organizationService">
+			<ref bean="organizationService" />
+		</property>
+		<property name="addressService">
+			<ref bean="addressService" />
+		</property>
+		<property name="roleService">
+			<ref bean="roleService" />
+		</property>
+	</bean>
+	<bean id="personGateway" factory-bean="GatewayFactory" factory-method="getPersonGateway">
+		<property name="datasource">
+			<ref bean="datasource" />
+		</property>
+	</bean>
+	<bean id="personService" class="org.capitolhillusergroup.person.PersonService">
+		<property name="personDAO">
+			<ref bean="personDAO" />
+		</property>
+		<property name="personGateway">
+			<ref bean="personGateway" />
+		</property>
+		<property name="imService">
+			<ref bean="imService" />
+		</property>
+	</bean>
+	
+	<!-- photo -->
+	<bean id="photoDAO" factory-bean="DAOFactory" factory-method="getPhotoDAO">
+		<property name="datasource">
+			<ref bean="datasource" />
+		</property>
+	</bean>
+	<bean id="photoGateway" factory-bean="GatewayFactory" factory-method="getPhotoGateway">
+		<property name="datasource">
+			<ref bean="datasource" />
+		</property>
+	</bean>
+	<bean id="photoService" class="org.capitolhillusergroup.photo.PhotoService">
+		<property name="photoDAO">
+			<ref bean="photoDAO" />
+		</property>
+		<property name="photoGateway">
+			<ref bean="photoGateway" />
+		</property>
+	</bean>
+	
+	<!-- photoalbum -->
+	<bean id="photoAlbumDAO" factory-bean="DAOFactory" factory-method="getPhotoAlbumDAO">
+		<property name="datasource">
+			<ref bean="datasource" />
+		</property>
+		<property name="photoService">
+			<ref bean="photoService" />
+		</property>
+	</bean>
+	<bean id="photoAlbumGateway" factory-bean="GatewayFactory" factory-method="getPhotoAlbumGateway">
+		<property name="datasource">
+			<ref bean="datasource" />
+		</property>
+	</bean>
+	<bean id="photoAlbumService" class="org.capitolhillusergroup.photoalbum.PhotoAlbumService">
+		<property name="photoAlbumDAO">
+			<ref bean="photoAlbumDAO" />
+		</property>
+		<property name="photoAlbumGateway">
+			<ref bean="photoAlbumGateway" />
+		</property>
+	</bean>
+	
+	<!-- presentation -->
+	<bean id="presentationDAO" factory-bean="DAOFactory" factory-method="getPresentationDAO">
+		<property name="datasource">
+			<ref bean="datasource" />
+		</property>
+		<property name="personService">
+			<ref bean="personService" />
+		</property>
+	</bean>
+	<bean id="presentationGateway" factory-bean="GatewayFactory" factory-method="getPresentationGateway">
+		<property name="datasource">
+			<ref bean="datasource" />
+		</property>
+		<property name="personService">
+			<ref bean="personService" />
+		</property>
+	</bean>
+	<bean id="presentationService" class="org.capitolhillusergroup.presentation.PresentationService">
+		<property name="presentationDAO">
+			<ref bean="presentationDAO" />
+		</property>
+		<property name="presentationGateway">
+			<ref bean="presentationGateway" />
+		</property>
+	</bean>
+	
+	<!-- role -->
+	<bean id="roleDAO" factory-bean="DAOFactory" factory-method="getRoleDAO">
+		<property name="datasource">
+			<ref bean="datasource" />
+		</property>
+	</bean>
+	<bean id="roleGateway" factory-bean="GatewayFactory" factory-method="getRoleGateway">
+		<property name="datasource">
+			<ref bean="datasource" />
+		</property>
+	</bean>
+	<bean id="roleService" class="org.capitolhillusergroup.role.RoleService">
+		<property name="roleDAO">
+			<ref bean="roleDAO" />
+		</property>
+		<property name="roleGateway">
+			<ref bean="roleGateway" />
+		</property>
+	</bean>
+	
+	<!-- rsvp -->
+	<bean id="rsvpDAO" factory-bean="DAOFactory" factory-method="getRSVPDAO">
+		<property name="datasource">
+			<ref bean="datasource" />
+		</property>
+	</bean>
+	<bean id="rsvpGateway" factory-bean="GatewayFactory" factory-method="getRSVPGateway">
+		<property name="datasource">
+			<ref bean="datasource" />
+		</property>
+	</bean>
+	<bean id="rsvpService" class="org.capitolhillusergroup.rsvp.RSVPService">
+		<property name="rsvpDAO">
+			<ref bean="rsvpDAO" />
+		</property>
+		<property name="rsvpGateway">
+			<ref bean="rsvpGateway" />
+		</property>
+	</bean>
+	
+	<!-- security -->
+	<bean id="securityService" class="org.capitolhillusergroup.security.SecurityService">
+		<property name="personService">
+			<ref bean="personService" />
+		</property>
+		<property name="sessionService">
+			<ref bean="sessionService" />
+		</property>
+	</bean>
+	
+	<!-- session -->
+	<bean id="sessionService" class="org.capitolhillusergroup.session.SessionService" />
+	
+</beans>

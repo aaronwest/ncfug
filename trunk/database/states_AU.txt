@@ -1,0 +1,8 @@
+NW,New South Wales
+VC,Victoria
+QL,Queensland
+WA,Western Australia 
+SA,South Australia
+TS,Tasmania 
+AC,Australian Capital Territory
+NT,Northern Territory

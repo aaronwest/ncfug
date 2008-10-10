@@ -1,0 +1,1 @@
+<cfinclude template="#getProperty('applicationRoot')#/skins/generic/admin/mainMenu.cfm" />
