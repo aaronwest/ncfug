@@ -22,6 +22,7 @@
 		<script type="text/javascript" src="js/calendar/lang/calendar-en.js"></script>
 		<script type="text/javascript" src="js/calendar/calendar-setup.js"></script>
 	</cfif>
+	<link rel="shortcut icon" href="#getProperty('applicationRoot')#skins/#getProperty('skin')#/images/favicon.ico">	
 </head>
 <body>
 	<!-- Start Header -->
@@ -255,27 +256,26 @@
 							<li><a href="http://www.adobe.com/products/coldfusion">ColdFusion</a></li>
 							<li><a href="http://www.adobe.com/products/flex">Flex</a></li>
 							<li><a href="http://www.adobe.com/go/air/">AIR</a></li>
-							<li><a href="http://www.mozilla.com/firefox">Get Firefox</a></li>
+
 				</ul>
 			</div>
 			<!-- bottom center information -->
 			<div class="bottomcolumn">
-				<h3>Recent Client Lists</h3>
+				<h3>Blog Roll</h3>
 				<p>Here is a list of some of our satisfied customers.</p>
 				<ul class="borderedlist iconlist">
-					<li><a href="##" title="Keep your clients in the know">Keep your clients in the know</a></li>
-					<li><a href="##" title="Current specials and discounts">Current specials and discounts</a></li>
-					<li><a href="##" title="Links to your services and promos">Links to your services and promos</a></li>
+					<li><a href="http://www.trajiklyhip.com/blog/index.cfm" title="Aaron West's Blog">Aaron West</a></li>
+					<li><a href="http://jeremiahx.com" title="The Blog of J.J. Merrick">J.J. Merrick</a></li>
+					<li><a href="http://coldfusionbloggers.org/" title="ColdFusionBloggers.org">ColdFusion Bloggers</a></li>
 				</ul>
 			</div>
 			<!-- bottom right information -->
 			<div class="bottomcolumn bottomright">
 				<h3>Stay Informed</h3>
-				<p>Subscribe to our e-news. Every month you recieve all the latest info, straight to your inbox.</p>
-				<form action="##">
-					<input type="text" name="email" class="enewsbox" />
-					<input type="button" class="button" value="Submit" />
-				</form>
+				<p>Subscribe to our email lists by clicking below.</p>
+				<a href="mailto:announcements@ncfug.com?subject=Subscribe">announcements@ncfug.com</a><br>
+				<a href="mailto:talk@ncfug.com?subject=Subscribe">talk@ncfug.com</a><br>
+				<a href="mailto:work@ncfug.com?subject=Subscribe">work@ncfug.com</a><br>
 			</div>
 			<hr />
 		</div>
