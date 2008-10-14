@@ -25,7 +25,7 @@
 
 /* =LAYOUT - the main layout styles */
 	.container{
-		width:900px;
+		width:940px;
 		margin: 0 auto;
 		position: relative;
 		overflow:hidden;
@@ -43,9 +43,9 @@
 	}
 	/* main area layout */
 	#main{padding:24px 0 20px 0;}
-	#leftcolumn{float: left;width:193px;}
-	#center{float: left;width:474px;padding: 0 20px;}
-	#rightcolumn{float: left;width:193px;}
+	#leftcolumn{float: left;width:200px;}
+	#center{float: left;width:500px;padding: 0 20px;}
+	#rightcolumn{float: left;width:200px;}
 	/* bottom layout */
 	#bottominfo{
 		border-top: 5px solid #42423b;
@@ -112,7 +112,7 @@
 	
 /* =CONTENT - the content styles */
 	/* left column */
-	.leftbox{background: #f1f0ef;padding: 10px 23px 10px 23px;margin-bottom:3px;line-height:1.8em;}
+	.leftbox{background: #f1f0ef;padding: 10px 13px 10px 13px;margin-bottom:3px;line-height:1.8em;}
 	h3.leftbox{font-size:19px;color: #8c8685; background: #f1f0ef url(../images/h3_bg_tall.jpg) 0 0 repeat-x;padding:5px 0 10px 23px;}
 	h3.header_small{font-size:15px;font-weight: bold;background: #f1f0ef;padding:0 23px 5px 23px;}
 	ul.leftbox{font-size: 1.2em;}
@@ -138,7 +138,7 @@
 		line-height: 18px;
 		color: #58584D;
 	}
-	.rightbox{border: 1px dashed #d9e0e8;width:193px;overflow: hidden;padding-bottom:6px;}
+	.rightbox{border: 1px dashed #d9e0e8;width:200px;overflow: hidden;padding-bottom:6px;}
 	.product_image{ float: left;margin: 6px 0 0 6px;}
 	.product_wrapper{float: right;width:200px;}
 	.product_wrapper h4{font-size:1.3em;color: #483F3D;font-weight: bold;padding-top:10px;}
