@@ -114,7 +114,7 @@
 	/* left column */
 	.leftbox{background: #f1f0ef;padding: 10px 13px 10px 13px;margin-bottom:3px;line-height:1.8em;}
 	h3.leftbox{font-size:19px;color: #8c8685; background: #f1f0ef url(../images/h3_bg_tall.jpg) 0 0 repeat-x;padding:5px 0 10px 23px;}
-	h3.header_small{font-size:15px;font-weight: bold;background: #f1f0ef;padding:0 23px 5px 23px;}
+	h3.header_small{font-size:15px;font-weight: bold;background: #f1f0ef;padding:0 15px 5px 23px;}
 	ul.leftbox{font-size: 1.2em;}
 
 	.features{padding-top:15px;font:1.27em Arial, Helvetica, sans-serif;}

@@ -17,8 +17,19 @@
 				<input type="text" id="email" name="email" size="30" maxlength="100" tabindex="2" value="" /><br />
 			</label>
 			
+			
+			<label for="reason"><span class="label">#getProperty("resourceBundleService").getResourceBundle().getResource("reasonforcontact")#</span>
+				<select name="reason" id="reason" tabindex="3">
+					<option selected>General</option>
+					<option>Meeting Suggestion</option>
+					<option>Advertising/Sponsorship</option>
+					<option>Job Posting Request</option>
+				</select>
+			</label>
+			
+			
 			<label for="comments"><span class="label"><span class="required">*</span>#getProperty("resourceBundleService").getResourceBundle().getResource("comments")#</span>
-				<textarea id="comments" name="comments" cols="40" rows="5" tabindex="3"></textarea><br />
+				<textarea id="comments" name="comments" cols="40" rows="5" tabindex="4"></textarea><br />
 			</label>
 			
 			<cfif getProperty("useCaptcha")>

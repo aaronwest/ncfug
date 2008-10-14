@@ -45,5 +45,5 @@
 	</cfif>
 	<br />
 	<br />
-	<h3>#getProperty("resourceBundleService").getResourceBundle().getResource("suggestameetingtopic")#</h3>
+	<h3><a href="index.cfm?#getProperty('eventParameter')#=showContactForm">#getProperty("resourceBundleService").getResourceBundle().getResource("suggestameetingtopic")#</a></h3>
 </cfoutput>

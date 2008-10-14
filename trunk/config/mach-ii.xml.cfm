@@ -6,7 +6,7 @@
 		<!-- mach-ii required -->
 		<property name="applicationRoot" value="/" />
 		<property name="defaultEvent" value="showHome" />
-		<property name="eventParameter" value="event" />
+		<property name="eventParameter" value="go" />
 		<property name="parameterPrecedence" value="form" />
 		<property name="maxEvents" value="10" />
 		<property name="exceptionEvent" value="exceptionEvent" />
@@ -47,10 +47,10 @@
 		<property name="wysiwygEditor" value="FCKeditor" />
 		<!-- Captcha related -->
 		<property name="captchaConfigFile" value="config/captcha.xml"/>
-		<property name="useCaptcha" value="true" />
+		<property name="useCaptcha" value="false" />
 		<property name="captchaType" value="file"/><!-- stream/file -->
 		<!-- Google Related -->
-		<!-- <property name="googleAnalyticsUAccount" value="" /> -->
+		<property name="googleAnalyticsUAccount" value="123456" />
 		
 		<!-- Homepage CategoryID -->
 		<!-- <property name="homepageCategoryID" value="26BFCADF-0A33-6FFF-1ADD6B5B98948EC2" /> -->

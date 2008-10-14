@@ -124,6 +124,9 @@
 						
 					</cfif>
 			</div>
+		
+		
+	
 			<cfif news.recordCount gt 0>
 			<h3 class="leftbox header_small">#getProperty("resourceBundleService").getResourceBundle().getResource("latestnews")#</h3>
 				<cfloop query="news">
@@ -219,6 +222,9 @@
 
 		<br />
 		<br />
+
+
+	
 		<hr /> 
 		</div>
 	</div>
