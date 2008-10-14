@@ -124,15 +124,17 @@
 						
 					</cfif>
 			</div>
-		
-		
-		
-		
-		
-		
+			<cfif news.recordCount gt 0>
+			<h3 class="leftbox header_small">#getProperty("resourceBundleService").getResourceBundle().getResource("latestnews")#</h3>
+				<cfloop query="news">
+					<div class="leftbox features">
+						<h4>#news.headline#</h4>
+						<p><a href="index.cfm?#getProperty('eventParameter')#=showNewsDetail&newsID=#news.news_id#">#getProperty("resourceBundleService").getResourceBundle().getResource("readmore")#</a></p>
+						<p>#getProperty("resourceBundleService").getLocaleUtils().i18nDateTimeFormat(news.dt_to_post, 3, 3)#</p>
+				</cfloop>
+			</div>
+			</cfif>
 	
-		
-		
 		<cfif event.getArg("authType") is "admin">		
 			<h3 class="leftbox">#getProperty("resourceBundleService").getResourceBundle().getResource("adminlinks")#</h3>
 			<ul class="leftbox borderedlist">
@@ -174,9 +176,7 @@
 							</ul>
 			</ul>
 		</cfif>	
-			
-			
-			
+		
 		<cfif event.getArg("authType") is "admin" or event.getArg("authType") is "member">
 		<h3 class="leftbox">#getProperty("resourceBundleService").getResourceBundle().getResource("memberlinks")#</h3>
 				<ul class="leftbox borderedlist">
@@ -219,29 +219,7 @@
 
 		<br />
 		<br />
-
-
-		<h3 class="leftbox header_small">#getProperty("resourceBundleService").getResourceBundle().getResource("latestnews")#</h3>
-				
-			<cfif news.recordCount gt 0>	
-			
-			
-			<div class="rightbox_wrapper">
-			
-			<cfloop query="news">
-				<div class="leftbox features">
-	
-						<h4>#news.headline#</h4>
-						<p><a href="index.cfm?#getProperty('eventParameter')#=showNewsDetail&newsID=#news.news_id#">#getProperty("resourceBundleService").getResourceBundle().getResource("readmore")#</a></p>
-						<p>#getProperty("resourceBundleService").getLocaleUtils().i18nDateTimeFormat(news.dt_to_post, 3, 3)#</p>
-				</div>
-			</cfloop>	
-			</div>
-			</cfif>			
-			
-			
-
-			<hr />
+		<hr /> 
 		</div>
 	</div>
 	<!-- Start Bottom Information -->
@@ -264,18 +242,19 @@
 				<h3>Blog Roll</h3>
 				<p>Here is a list of some of our satisfied customers.</p>
 				<ul class="borderedlist iconlist">
-					<li><a href="http://www.trajiklyhip.com/blog/index.cfm" title="Aaron West's Blog">Aaron West</a></li>
+					<li><a href="http://www.trajiklyhip.com/blog" title="Aaron West's Blog">Aaron West</a></li>
 					<li><a href="http://jeremiahx.com" title="The Blog of J.J. Merrick">J.J. Merrick</a></li>
+					<li><a href="http://blog.cutterscrossing.com" title="The Blog of Cutter Blades">Cutter Blades</a></li>
 					<li><a href="http://coldfusionbloggers.org/" title="ColdFusionBloggers.org">ColdFusion Bloggers</a></li>
 				</ul>
 			</div>
 			<!-- bottom right information -->
 			<div class="bottomcolumn bottomright">
 				<h3>Stay Informed</h3>
-				<p>Subscribe to our email lists by clicking below.</p>
-				<a href="mailto:announcements@ncfug.com?subject=Subscribe">announcements@ncfug.com</a><br>
-				<a href="mailto:talk@ncfug.com?subject=Subscribe">talk@ncfug.com</a><br>
-				<a href="mailto:work@ncfug.com?subject=Subscribe">work@ncfug.com</a><br>
+				<p>Click each link below to subscribe to our e-mail lists.</p>
+				<a href="mailto:announcements@ncfug.com?subject=Subscribe">announcements@ncfug.com</a> (read only)<br/>
+				<a href="mailto:talk@ncfug.com?subject=Subscribe">talk@ncfug.com</a> (on and off topic posts allowed)<br/>
+				<a href="mailto:work@ncfug.com?subject=Subscribe">work@ncfug.com</a> (on topic posts only)<br/>
 			</div>
 			<hr />
 		</div>
