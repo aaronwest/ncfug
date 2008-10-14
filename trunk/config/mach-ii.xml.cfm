@@ -13,8 +13,8 @@
 		<!-- application specific -->
 		<property name="dsn" value="ncfug" />
 		<property name="dbType" value="MySQL" />
-		<property name="dbUserName" value="root" />
-		<property name="dbPassword" value="adm1n" />
+		<property name="dbUserName" value="ncfug" />
+		<property name="dbPassword" value="8KrJM9qE" />
 		<property name="dbVersion" value="0.1" />
 		
 		<property name="devMode" value="true" />
@@ -33,7 +33,7 @@
 		<property name="skin" value="ncfug" />
 		<property name="rbFile" value="/i18n/main" />
 		<property name="rbLocale" value="en_US" />
-		<property name="copyrightNotice" value="copyright 2008 Nashville ColdFusion User Group" />
+		<property name="copyrightNotice" value="Copyright © 2008 Nashville ColdFusion User Group" />
 		<property name="defaultState" value="TN" />
 		<property name="defaultStateName" value="Tennessee" />
 		<property name="defaultCountry" value="US" />
