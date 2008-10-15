@@ -5,7 +5,7 @@
 	<properties>
 		<!-- mach-ii required -->
 		<property name="applicationRoot" value="/" />
-		<property name="defaultEvent" value="showHome" />
+		<property name="defaultEvent" value="home" />
 		<property name="eventParameter" value="go" />
 		<property name="parameterPrecedence" value="form" />
 		<property name="maxEvents" value="10" />
@@ -50,7 +50,8 @@
 		<property name="useCaptcha" value="false" />
 		<property name="captchaType" value="file"/><!-- stream/file -->
 		<!-- Google Related -->
-		<property name="googleAnalyticsUAccount" value="123456" />
+		<!-- This Google Analytics ID is tied to Aaron's global account. -->
+		<property name="googleAnalyticsUAccount" value="UA-3548918-3" />
 		
 		<!-- Homepage CategoryID -->
 		<!-- <property name="homepageCategoryID" value="26BFCADF-0A33-6FFF-1ADD6B5B98948EC2" /> -->
@@ -103,27 +104,27 @@
 	<event-handlers>
 	
 		<!-- THANKYOU -->
-		<event-handler event="showThankyou" access="public">
+		<event-handler event="thankyou" access="public">
 			<view-page name="thankyou" contentArg="content" />
 			<announce event="mainLayout" copyEventArgs="true" />
 		</event-handler>
 		
-		<event-handler event="showThankyou_redirect" access="private">
-			<redirect event="showThankyou" args="message" />
+		<event-handler event="thankyou_redirect" access="private">
+			<redirect event="thankyou" args="message" />
 		</event-handler>
 		
 		<!-- PENDING -->
-		<event-handler event="showPending" access="public">
+		<event-handler event="pending" access="public">
 			<view-page name="pending" contentArg="content" />
 			<announce event="mainLayout" copyEventArgs="true" />
 		</event-handler>
 		
-		<event-handler event="showPending_redirect" access="private">
-			<redirect event="showPending" args="message" />
+		<event-handler event="pending_redirect" access="private">
+			<redirect event="pending" args="message" />
 		</event-handler>
 	
 		<!-- RSVP -->
-		<event-handler event="showRSVPForm" access="public">
+		<event-handler event="rsvpform" access="public">
 			<event-arg name="includeqForms" value="true" />
 			<notify listener="captchaListener" method="getHashReference" resultArg="captcha"/>
 			<notify listener="meetingListener" method="getMeetingByID" resultArg="meeting" />
@@ -133,7 +134,7 @@
 			<announce event="mainLayout" copyEventArgs="true" />
 		</event-handler>
 		
-		<event-handler event="showRSVPForm_error" access="private">
+		<event-handler event="rsvpform_error" access="private">
 			<event-arg name="includeqForms" value="true" />
 			<notify listener="captchaListener" method="getHashReference" resultArg="captcha"/>
 			<notify listener="meetingListener" method="getMeetingByID" resultArg="meeting" />
@@ -143,13 +144,13 @@
 			<announce event="mainLayout" copyEventArgs="true" />
 		</event-handler>
 		
-		<event-handler event="showRSVPForm_redirect" access="private">
-			<redirect event="showRSVPForm" args="message,meetingID" />
+		<event-handler event="rsvpform_redirect" access="private">
+			<redirect event="rsvpform" args="message,meetingID" />
 		</event-handler>
 		
 		<event-handler event="processRSVPForm" access="public">
-			<event-mapping event="success" mapping="showThankyou_redirect" />
-			<event-mapping event="failure" mapping="showRSVPForm_error" />
+			<event-mapping event="success" mapping="thankyou_redirect" />
+			<event-mapping event="failure" mapping="rsvpform_error" />
 			<event-bean name="rsvp" type="org.capitolhillusergroup.rsvp.RSVP" fields="rsvpID,meetingID,personID,firstName,lastName,email,comments" />
 			<notify listener="captchaListener" method="validateCaptcha" />
 			<notify listener="rsvpListener" method="processRSVPForm" />
@@ -171,51 +172,51 @@
 		</event-handler>
 		
 		<!-- LOGIN -->
-		<event-handler event="showLogin" access="public">
+		<event-handler event="login" access="public">
 			<event-arg name="includeqForms" value="true" />
 			<view-page name="login" contentArg="content" />
 			<announce event="mainLayout" copyEventArgs="true" />
 		</event-handler>
-		<event-handler event="showLogin_redirect" access="private">
-			<redirect event="showLogin" args="message" />
+		<event-handler event="login_redirect" access="private">
+			<redirect event="login" args="message" />
 		</event-handler>
 		
 		<event-handler event="logout" access="public">
 			<notify listener="securityListener" method="logout" />
-			<redirect event="showHome" args="message" />
+			<redirect event="home" args="message" />
 		</event-handler>
 		
 		<event-handler event="processLoginForm" access="public">
-			<event-mapping event="failure" mapping="showLogin_redirect" />
+			<event-mapping event="failure" mapping="login_redirect" />
 			<notify listener="securityListener" method="validateLoginAttempt" />
 		</event-handler>
 		
 		<!-- FORGOT PASSWORD -->
-		<event-handler event="showForgotPassword" access="public">
+		<event-handler event="forgotpassword" access="public">
 			<event-arg name="includeqForms" value="true" />
 			<view-page name="forgotPassword" contentArg="content" />
 			<announce event="mainLayout" copyEventArgs="true" />
 		</event-handler>
 		
-		<event-handler event="showForgotPassword_redirect" access="public">
-			<redirect event="showForgotPassword" args="message" />
+		<event-handler event="forgotpassword_redirect" access="public">
+			<redirect event="forgotpassword" args="message" />
 		</event-handler>
 		
 		<event-handler event="processForgotPassword" access="public">
-			<event-mapping event="success" mapping="showForgotPassword_redirect" />
-			<event-mapping event="failure" mapping="showForgotPassword" />
+			<event-mapping event="success" mapping="forgotpassword_redirect" />
+			<event-mapping event="failure" mapping="forgotpassword" />
 			<notify listener="securityListener" method="processForgotPassword" />
 		</event-handler>
 		
 		<!-- BOARD MEMBERS -->
-		<event-handler event="showBoard" access="public">
+		<event-handler event="board" access="public">
 			<notify listener="boardPositionListener" method="getBoardMembers" resultArg="boardMembers" />
 			<view-page name="board" contentArg="content" />
 			<announce event="mainLayout" copyEventArgs="true" />
 		</event-handler>
 		
 		<!-- CONTACT -->
-		<event-handler event="showContactForm" access="public">
+		<event-handler event="contact" access="public">
 			<event-arg name="includeqForms" value="true" />
 			<notify listener="captchaListener" method="getHashReference" resultArg="captcha"/>
 			<view-page name="captchaSnip" contentArg="captchaSnip" />
@@ -223,20 +224,20 @@
 			<announce event="mainLayout" copyEventArgs="true" />
 		</event-handler>
 		
-		<event-handler event="showContactForm_redirect" access="private">
-			<redirect event="showContactForm" args="message" />
+		<event-handler event="contact_redirect" access="private">
+			<redirect event="contact" args="message" />
 		</event-handler>
 
 		<event-handler event="processContactForm" access="public">
-			<event-mapping event="success" mapping="showThankyou_redirect" />
-			<event-mapping event="failure" mapping="showContactForm" />
+			<event-mapping event="success" mapping="thankyou_redirect" />
+			<event-mapping event="failure" mapping="contact" />
 			<event-bean name="contact" type="org.capitolhillusergroup.contact.Contact" fields="name,email,comments" />
 			<notify listener="captchaListener" method="validateCaptcha" />
 			<notify listener="contactListener" method="processContactForm" />
 		</event-handler>
 		
 		<!-- HOME -->
-		<event-handler event="showHome" access="public">
+		<event-handler event="home" access="public">
 			<event-arg name="activeOnly" value="true" />
 			<notify listener="articleListener" method="getHomePageArticles" resultArg="welcome" />
 			<notify listener="meetingListener" method="getUpcomingMeetings" resultArg="upcomingMeetings" />
@@ -246,20 +247,20 @@
 		</event-handler>
 		
 		<!-- MEETINGS -->
-		<event-handler event="showMeeting" access="public">
+		<event-handler event="meeting" access="public">
 			<notify listener="meetingListener" method="getMeetingByID" resultArg="meeting" />
 			<view-page name="meeting" contentArg="content" />
 			<announce event="mainLayout" copyEventArgs="true" />
 		</event-handler>
 		
-		<event-handler event="showMeetings" access="public">
+		<event-handler event="meetings" access="public">
 			<notify listener="meetingListener" method="getActiveMeetingsAsArray" resultArg="meetings" />
 			<view-page name="meetings" contentArg="content" />
 			<announce event="mainLayout" copyEventArgs="true" />
 		</event-handler>
 		
 		<!-- NEWS -->
-		<event-handler event="showNews" access="public">
+		<event-handler event="news" access="public">
 			<event-arg name="activeOnly" value="true" />
 			<event-arg name="numToGet" value="-1" />
 			<notify listener="newsListener" method="getNews" resultArg="news" />
@@ -267,28 +268,28 @@
 			<announce event="mainLayout" copyEventArgs="true" />
 		</event-handler>
 
-		<event-handler event="showNewsDetail" access="public">
+		<event-handler event="newsdetail" access="public">
 			<notify listener="newsListener" method="getNewsByID" resultArg="news" />
 			<view-page name="newsDetail" contentArg="content" />
 			<announce event="mainLayout" copyEventArgs="true" />
 		</event-handler>
 		
 		<!-- ARTICLES -->
-		<event-handler event="showArticles" access="public">
+		<event-handler event="articles" access="public">
 			<event-arg name="activeOnly" value="true" />
 			<event-arg name="numToGet" value="-1" />
 			<notify listener="articleListener" method="getArticlesAsArray" resultArg="articles" />
 			<view-page name="articles" contentArg="content" />
 			<announce event="mainLayout" copyEventArgs="true" />
 		</event-handler>
-		<event-handler event="showArticleDetail" access="public">
+		<event-handler event="articledetail" access="public">
 			<notify listener="articleListener" method="getArticleByID" resultArg="article" />
 			<view-page name="articleDetail" contentArg="content" />
 			<announce event="mainLayout" copyEventArgs="true" />
 		</event-handler>
 		
 		<!-- REGISTRATION -->
-		<event-handler event="showRegistrationForm" access="public">
+		<event-handler event="registrationform" access="public">
 			<event-arg name="includeqForms" value="true" />
 			<notify listener="organizationListener" method="getOrganizations" resultArg="organizations" />
 			<notify listener="addressListener" method="getStates" resultArg="states" />
@@ -302,11 +303,11 @@
 			<announce event="mainLayout" copyEventArgs="true" />
 		</event-handler>
 		
-		<event-handler event="showRegistrationForm_redirect" access="private">
-			<redirect event="showRegistrationForm" args="message" />
+		<event-handler event="registrationform_redirect" access="private">
+			<redirect event="registrationform" args="message" />
 		</event-handler>
 		
-		<event-handler event="showRegistrationForm_error" access="private">
+		<event-handler event="registrationform_error" access="private">
 			<event-arg name="includeqForms" value="true" />
 			<notify listener="organizationListener" method="getOrganizations" resultArg="organizations" />
 			<notify listener="addressListener" method="getStates" resultArg="states" />
@@ -321,8 +322,8 @@
 		</event-handler>
 		
 		<event-handler event="processRegistrationForm" access="public">
-			<event-mapping event="success" mapping="showPending_redirect" />
-			<event-mapping event="failure" mapping="showRegistrationForm_error" />
+			<event-mapping event="success" mapping="pending_redirect" />
+			<event-mapping event="failure" mapping="registrationform_error" />
 			<event-bean name="person" type="org.capitolhillusergroup.person.Person" fields="personID,firstName,lastName,title,email,url,password,phone" />
 			<event-bean name="address" type="org.capitolhillusergroup.address.Address" fields="addressID,address1,address2,city,stateID,postalCode,countryID" />
 			<event-bean name="organization" type="org.capitolhillusergroup.organization.Organization" fields="organizationID" />

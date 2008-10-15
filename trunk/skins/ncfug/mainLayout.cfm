@@ -33,25 +33,25 @@
 			<!-- top navigation -->
 			<ul id="navigation">
 				
-					<li <cfif event.getRequestName() is "showHome"> class="active"</cfif>>
-						<a href="index.cfm?#getProperty('eventParameter')#=showHome">
+					<li <cfif event.getRequestName() is "home"> class="active"</cfif>>
+						<a href="#getProperty('eventParameter')#=home">
 							#getProperty("resourceBundleService").getResourceBundle().getResource("home")#
 						</a>
 					
 					</li>
 					
-					<li <cfif event.getRequestName() is "showMeetings" or event.getRequestName() is "showMeeting"> class="active"</cfif>>						
-						<a href="index.cfm?#getProperty('eventParameter')#=showMeetings">
+					<li <cfif event.getRequestName() is "meetings" or event.getRequestName() is "meeting"> class="active"</cfif>>						
+						<a href="#getProperty('eventParameter')#=meetings">
 							#getProperty("resourceBundleService").getResourceBundle().getResource("meetings")#
 						</a>
 					</li>
-					<li <cfif event.getRequestName() is "showNews"> class="active"</cfif>>
-						<a href="index.cfm?#getProperty('eventParameter')#=showNews">
+					<li <cfif event.getRequestName() is "news"> class="active"</cfif>>
+						<a href="#getProperty('eventParameter')#=news">
 							#getProperty("resourceBundleService").getResourceBundle().getResource("news")#
 						</a>
 					</li> 
-					<li <cfif event.getRequestName() is "showArticles"> class="active"</cfif>>
-						<a href="index.cfm?#getProperty('eventParameter')#=showArticles">
+					<li <cfif event.getRequestName() is "articles"> class="active"</cfif>>
+						<a href="#getProperty('eventParameter')#=articles">
 							#getProperty("resourceBundleService").getResourceBundle().getResource("articles")#
 						</a>
 					</li>
@@ -65,13 +65,13 @@
 							#getProperty("resourceBundleService").getResourceBundle().getResource("photos")#
 						</a>
 					</li> --->
-					<li <cfif event.getRequestName() is "showBoard"> class="active"</cfif>>
-						<a href="index.cfm?#getProperty('eventParameter')#=showBoard">
+					<li <cfif event.getRequestName() is "board"> class="active"</cfif>>
+						<a href="#getProperty('eventParameter')#=board">
 							#getProperty("resourceBundleService").getResourceBundle().getResource("board")#
 						</a>
 					</li>
-					<li <cfif event.getRequestName() is "showContactForm"> class="active"</cfif>>
-						<a href="index.cfm?#getProperty('eventParameter')#=showContactForm">
+					<li <cfif event.getRequestName() is "contact"> class="active"</cfif>>
+						<a href="#getProperty('eventParameter')#=contact">
 							#getProperty("resourceBundleService").getResourceBundle().getResource("contact")#
 						</a>
 					</li>
@@ -109,14 +109,14 @@
 							</cfif>
 							
 								<h2>#getProperty("resourceBundleService").getLocaleUtils().i18nDateTimeFormat(upcomingMeetings[i].getDTMeeting(), 3, 3)#</h2>
-								<p><a href="index.cfm?#getProperty('eventParameter')#=showMeeting&meetingID=#upcomingMeetings[i].getMeetingID()#">#upcomingMeetings[i].getTitle()#</a><br />
+								<p><a href="#getProperty('eventParameter')#=meeting&meetingID=#upcomingMeetings[i].getMeetingID()#">#upcomingMeetings[i].getTitle()#</a><br />
 								#upcomingMeetings[i].getLocation().getLocation()#</p>
 								<p>#nextMeeting.getLocation().getAddress().getAddress1()#,<br />
 								#nextMeeting.getLocation().getAddress().getCity()#, #nextMeeting.getLocation().getAddress().getState()# #nextMeeting.getLocation().getAddress().getPostalCode()#</p>
 								<cfif isDefined("tempLinkMain")>
 									<p><a href="#tempLinkMain#">#getProperty("resourceBundleService").getResourceBundle().getResource("mapoflocation")#</a></p>
 								</cfif>
-								<p><a href="index.cfm?#getProperty('eventParameter')#=showRSVPForm&amp;meetingID=#nextMeeting.getMeetingID()#">#getProperty("resourceBundleService").getResourceBundle().getResource("rsvpforthismeeting")#</a></p>
+								<p><a href="#getProperty('eventParameter')#=rsvpform&amp;meetingID=#nextMeeting.getMeetingID()#">#getProperty("resourceBundleService").getResourceBundle().getResource("rsvpforthismeeting")#</a></p>
 							
 						</cfloop>
 					<cfelse>
@@ -132,7 +132,7 @@
 				<cfloop query="news">
 					<div class="leftbox features">
 						<h4>#news.headline#</h4>
-						<p><a href="index.cfm?#getProperty('eventParameter')#=showNewsDetail&newsID=#news.news_id#">#getProperty("resourceBundleService").getResourceBundle().getResource("readmore")#</a></p>
+						<p><a href="#getProperty('eventParameter')#=newsdetail&newsID=#news.news_id#">#getProperty("resourceBundleService").getResourceBundle().getResource("readmore")#</a></p>
 						<p>#getProperty("resourceBundleService").getLocaleUtils().i18nDateTimeFormat(news.dt_to_post, 3, 3)#</p>
 				</cfloop>
 			</div>
@@ -142,37 +142,37 @@
 			<h3 class="leftbox">#getProperty("resourceBundleService").getResourceBundle().getResource("adminlinks")#</h3>
 			<ul class="leftbox borderedlist">
 								<li>
-									<a href="index.cfm?#getProperty('eventParameter')#=admin.showMainMenu">
+									<a href="#getProperty('eventParameter')#=admin.showMainMenu">
 										#getProperty("resourceBundleService").getResourceBundle().getResource("adminmenu")#
 									</a>
 								</li>
 								<li>
-									<a href="index.cfm?#getProperty('eventParameter')#=admin.showArticleMenu">
+									<a href="#getProperty('eventParameter')#=admin.showArticleMenu">
 										#getProperty("resourceBundleService").getResourceBundle().getResource("managearticles")#
 									</a>
 								</li>
 								<li>
-									<a href="index.cfm?#getProperty('eventParameter')#=admin.showBookMenu">
+									<a href="#getProperty('eventParameter')#=admin.showBookMenu">
 										#getProperty("resourceBundleService").getResourceBundle().getResource("managebooks")#
 									</a>
 								</li>
 								<li>
-									<a href="index.cfm?#getProperty('eventParameter')#=admin.showMeetingMenu">
+									<a href="#getProperty('eventParameter')#=admin.showMeetingMenu">
 										#getProperty("resourceBundleService").getResourceBundle().getResource("managemeetings")#
 									</a>
 								</li>
 								<li>
-									<a href="index.cfm?#getProperty('eventParameter')#=admin.showNewsMenu">
+									<a href="#getProperty('eventParameter')#=admin.showNewsMenu">
 										#getProperty("resourceBundleService").getResourceBundle().getResource("managenews")#
 									</a>
 								</li>
 								<li>
-									<a href="index.cfm?#getProperty('eventParameter')#=admin.showPeopleMenu">
+									<a href="#getProperty('eventParameter')#=admin.showPeopleMenu">
 										#getProperty("resourceBundleService").getResourceBundle().getResource("managepeople")#
 									</a>
 								</li>
 								<li>
-									<a href="index.cfm?#getProperty('eventParameter')#=admin.showPhotoMenu">
+									<a href="#getProperty('eventParameter')#=admin.showPhotoMenu">
 										#getProperty("resourceBundleService").getResourceBundle().getResource("managephotos")#
 									</a>
 								</li>
@@ -184,12 +184,12 @@
 		<h3 class="leftbox">#getProperty("resourceBundleService").getResourceBundle().getResource("memberlinks")#</h3>
 				<ul class="leftbox borderedlist">
 								<li>
-									<a href="index.cfm?#getProperty('eventParameter')#=member.showMainMenu">
+									<a href="#getProperty('eventParameter')#=member.showMainMenu">
 										#getProperty("resourceBundleService").getResourceBundle().getResource("membermenu")#
 									</a>
 								</li>
 								<li>
-									<a href="index.cfm?#getProperty('eventParameter')#=member.showProfile">
+									<a href="#getProperty('eventParameter')#=member.showProfile">
 										#getProperty("resourceBundleService").getResourceBundle().getResource("manageyourprofile")#
 									</a>
 								</li>
@@ -270,25 +270,25 @@
 		<div class="container">
 			<a id="designby" href="http://www.studio7designs.com/" title="Design by STUDIO7DESIGNS">WEB DESIGN BY STUDIO7DESIGNS</a>
 			<ul id="footer_navigation">
-					<li <cfif event.getRequestName() is "showHome"> class="active"</cfif>>
-						<a href="index.cfm?#getProperty('eventParameter')#=showHome">
+					<li <cfif event.getRequestName() is "home"> class="active"</cfif>>
+						<a href="#getProperty('eventParameter')#=home">
 							#getProperty("resourceBundleService").getResourceBundle().getResource("home")#
 						</a>
 					
 					</li>
 					
-					<li <cfif event.getRequestName() is "showMeetings" or event.getRequestName() is "showMeeting"> class="active"</cfif>>						
-						<a href="index.cfm?#getProperty('eventParameter')#=showMeetings">
+					<li <cfif event.getRequestName() is "meetings" or event.getRequestName() is "meeting"> class="active"</cfif>>						
+						<a href="#getProperty('eventParameter')#=meetings">
 							#getProperty("resourceBundleService").getResourceBundle().getResource("meetings")#
 						</a>
 					</li>
-					<li <cfif event.getRequestName() is "showNews"> class="active"</cfif>>
-						<a href="index.cfm?#getProperty('eventParameter')#=showNews">
+					<li <cfif event.getRequestName() is "news"> class="active"</cfif>>
+						<a href="#getProperty('eventParameter')#=news">
 							#getProperty("resourceBundleService").getResourceBundle().getResource("news")#
 						</a>
 					</li> 
-					<li <cfif event.getRequestName() is "showArticles"> class="active"</cfif>>
-						<a href="index.cfm?#getProperty('eventParameter')#=showArticles">
+					<li <cfif event.getRequestName() is "articles"> class="active"</cfif>>
+						<a href="#getProperty('eventParameter')#=articles">
 							#getProperty("resourceBundleService").getResourceBundle().getResource("articles")#
 						</a>
 					</li>
@@ -302,22 +302,22 @@
 							#getProperty("resourceBundleService").getResourceBundle().getResource("photos")#
 						</a>
 					</li> --->
-					<li <cfif event.getRequestName() is "showBoard"> class="active"</cfif>>
-						<a href="index.cfm?#getProperty('eventParameter')#=showBoard">
+					<li <cfif event.getRequestName() is "board"> class="active"</cfif>>
+						<a href="#getProperty('eventParameter')#=board">
 							#getProperty("resourceBundleService").getResourceBundle().getResource("board")#
 						</a>
 					</li>
-					<li <cfif event.getRequestName() is "showContactForm"> class="active"</cfif>>
-						<a href="index.cfm?#getProperty('eventParameter')#=showContactForm">
+					<li <cfif event.getRequestName() is "contact"> class="active"</cfif>>
+						<a href="#getProperty('eventParameter')#=contact">
 							#getProperty("resourceBundleService").getResourceBundle().getResource("contact")#
 						</a>
 					</li>
 					
 			<li>		
 			<cfif event.getArg("authType") is not "none">
-				<a href="index.cfm?#getProperty('eventParameter')#=logout">#getProperty("resourceBundleService").getResourceBundle().getResource("logout")#</a>
+				<a href="#getProperty('eventParameter')#=logout">#getProperty("resourceBundleService").getResourceBundle().getResource("logout")#</a>
 			<cfelse>
-				<a href="index.cfm?#getProperty('eventParameter')#=showLogin">#getProperty("resourceBundleService").getResourceBundle().getResource("login")#</a>
+				<a href="#getProperty('eventParameter')#=login">#getProperty("resourceBundleService").getResourceBundle().getResource("login")#</a>
 			</cfif>
 			</li>
 				
