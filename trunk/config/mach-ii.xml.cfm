@@ -26,7 +26,7 @@
 		<property name="contactName" value="J.J. Merrick" />
 		<property name="contactEmail" value="info@ncfug.com" />
 		<property name="notificationFromAddress" value="info@ncfug.com" />
-		<property name="baseURL" value="http://www.ncfug.com" />
+		<property name="baseURL" value="http://www.ncfug.com/" />
 		<property name="personImageFilePath" value="uploads/personImages/" />
 		<property name="presentationFilePath" value="uploads/presentations/" />
 		<property name="temporaryFilePath" value="uploads/temp/" />
