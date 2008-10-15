@@ -13,7 +13,7 @@
 					<cfset authorsare = articles[a].getAuthors() />
 					<cfset categoriesare = articles[a].getCategories() />
 					<tr<cfif (a MOD 2) EQ 0> class="odd"</cfif>>
-						<td><a href="index.cfm?#getProperty('eventParameter')#=showArticleDetail&articleID=#articles[a].getArticleID()#">#articles[a].getTitle()#</a></td>
+						<td><a href="#getProperty('baseURL')##getProperty('eventParameter')#/articledetail/articleID=#articles[a].getArticleID()#">#articles[a].getTitle()#</a></td>
 						<td>
 							<cfloop from="1" to="#arrayLen(authorsare)#" index="au">
 								<cfif au GT 1><br /></cfif>

@@ -52,6 +52,10 @@
 		<!-- Google Related -->
 		<!-- This Google Analytics ID is tied to Aaron's global account. -->
 		<property name="googleAnalyticsUAccount" value="UA-3548918-3" />
+		<!-- SES URL Settings. These are needed for <redirect> events to work properly. -->
+		<property name="urlParseSES" value="true" />
+		<property name="urlDelimiters" value="/|/|/" />
+		<property name="urlBase" value="http://www.ncfug.com" />
 		
 		<!-- Homepage CategoryID -->
 		<!-- <property name="homepageCategoryID" value="26BFCADF-0A33-6FFF-1ADD6B5B98948EC2" /> -->
@@ -69,7 +73,7 @@
 		</plugin>
 		<plugin name="appVars" type="org.capitolhillusergroup.plugins.AppVars" />
 		<plugin name="checkAuthentication" type="org.capitolhillusergroup.plugins.CheckAuthentication" />
-		<!-- <plugin name="tracePlugin" type="MachII.plugins.TracePlugin" /> -->
+		<!--<plugin name="tracePlugin" type="MachII.plugins.TracePlugin" />-->
 	</plugins>
 	
 	<!-- EVENT-FILTERS -->

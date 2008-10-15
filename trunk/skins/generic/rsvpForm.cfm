@@ -14,7 +14,7 @@
 		#meeting.getDTMeeting()#
 	</h2>
 
-	<form id="rsvpForm" action="index.cfm?#getProperty('eventParameter')#=processRSVPForm&amp;meetingID=#meeting.getMeetingID()#" class="standardForm" method="post">
+	<form id="rsvpForm" action="#getProperty('baseURL')##getProperty('eventParameter')#/processRSVPForm/meetingID/#meeting.getMeetingID()#" class="standardForm" method="post">
 		
 		<fieldset>
 

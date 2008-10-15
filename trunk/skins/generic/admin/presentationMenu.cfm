@@ -7,7 +7,7 @@
 		}
 	</script>
 	
-h2>#getProperty("resourceBundleService").getResourceBundle().getResource("managepresentations")#</h2>
+<h2>#getProperty("resourceBundleService").getResourceBundle().getResource("managepresentations")#</h2>
 
 	<cfif event.isArgDefined("message")>
 		<p class="message">#event.getArg("message")#</p>

@@ -5,5 +5,5 @@
 	
 	<p>#news.getBody()#</p>
 	
-	<p><a href="index.cfm?#getProperty('eventParameter')#=showNews">&lt;&lt;#getProperty("resourceBundleService").getResourceBundle().getResource("backtonews")#</a></p>
+	<p><a href="#getProperty('baseURL')##getProperty('eventParameter')#/news">&lt;&lt;#getProperty("resourceBundleService").getResourceBundle().getResource("backtonews")#</a></p>
 </cfoutput>
