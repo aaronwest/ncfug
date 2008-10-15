@@ -34,7 +34,7 @@
 			<ul id="navigation">
 				
 					<li <cfif event.getRequestName() is "home"> class="active"</cfif>>
-						<a href="#getProperty('fullpath')##getProperty('eventParameter')#/home">
+						<a href="#getProperty('baseURL')#">
 							#getProperty("resourceBundleService").getResourceBundle().getResource("home")#
 						</a>
 					
@@ -109,14 +109,14 @@
 							</cfif>
 							
 								<h2>#getProperty("resourceBundleService").getLocaleUtils().i18nDateTimeFormat(upcomingMeetings[i].getDTMeeting(), 3, 3)#</h2>
-								<p><a href="#getProperty('baseURL')##getProperty('eventParameter')#/meeting&meetingID=#upcomingMeetings[i].getMeetingID()#">#upcomingMeetings[i].getTitle()#</a><br />
+								<p><a href="#getProperty('baseURL')##getProperty('eventParameter')#/meeting/meetingID/#upcomingMeetings[i].getMeetingID()#">#upcomingMeetings[i].getTitle()#</a><br />
 								#upcomingMeetings[i].getLocation().getLocation()#</p>
 								<p>#nextMeeting.getLocation().getAddress().getAddress1()#,<br />
 								#nextMeeting.getLocation().getAddress().getCity()#, #nextMeeting.getLocation().getAddress().getState()# #nextMeeting.getLocation().getAddress().getPostalCode()#</p>
 								<cfif isDefined("tempLinkMain")>
 									<p><a href="#tempLinkMain#">#getProperty("resourceBundleService").getResourceBundle().getResource("mapoflocation")#</a></p>
 								</cfif>
-								<p><a href="#getProperty('baseURL')##getProperty('eventParameter')#/rsvpform&amp;meetingID=#nextMeeting.getMeetingID()#">#getProperty("resourceBundleService").getResourceBundle().getResource("rsvpforthismeeting")#</a></p>
+								<p><a href="#getProperty('baseURL')##getProperty('eventParameter')#/rsvpform/meetingID/#nextMeeting.getMeetingID()#">#getProperty("resourceBundleService").getResourceBundle().getResource("rsvpforthismeeting")#</a></p>
 							
 						</cfloop>
 					<cfelse>
@@ -132,7 +132,7 @@
 				<cfloop query="news">
 					<div class="leftbox features">
 						<h4>#news.headline#</h4>
-						<p><a href="#getProperty('baseURL')##getProperty('eventParameter')#/newsdetail&newsID=#news.news_id#">#getProperty("resourceBundleService").getResourceBundle().getResource("readmore")#</a></p>
+						<p><a href="#getProperty('baseURL')##getProperty('eventParameter')#/newsdetail/newsID/#news.news_id#">#getProperty("resourceBundleService").getResourceBundle().getResource("readmore")#</a></p>
 						<p>#getProperty("resourceBundleService").getLocaleUtils().i18nDateTimeFormat(news.dt_to_post, 3, 3)#</p>
 				</cfloop>
 			</div>
@@ -271,7 +271,7 @@
 			<a id="designby" href="http://www.studio7designs.com/" title="Design by STUDIO7DESIGNS">WEB DESIGN BY STUDIO7DESIGNS</a>
 			<ul id="footer_navigation">
 					<li <cfif event.getRequestName() is "home"> class="active"</cfif>>
-						<a href="#getProperty('baseURL')##getProperty('eventParameter')#/home">
+						<a href="#getProperty('baseURL')#">
 							#getProperty("resourceBundleService").getResourceBundle().getResource("home")#
 						</a>
 					
