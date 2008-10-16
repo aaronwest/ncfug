@@ -29,7 +29,6 @@
 			#nextMeeting.getLocation().getAddress().getState()#
 			#nextMeeting.getLocation().getAddress().getPostalCode()#
 		</p>
-		
 		<cfif nextMeeting.getConnectURL() is not "">
 		<p>
 			<strong>#getProperty("resourceBundleService").getResourceBundle().getResource("connecturl")#:</strong> 
@@ -39,17 +38,20 @@
 		
 		<p>#nextMeeting.getDescription()#</p>
 		
-		<h3>#getProperty("resourceBundleService").getResourceBundle().getResource("directions")#</h3>
+		<p><strong>#getProperty("resourceBundleService").getResourceBundle().getResource("locationinfo")#</strong><br/>
+		#nextMeeting.getLocation().getAddress().getAddress1()#,
+		#nextMeeting.getLocation().getAddress().getCity()#,
+		#nextMeeting.getLocation().getAddress().getState()#
+		#nextMeeting.getLocation().getAddress().getPostalCode()#<br/>
+		#nextMeeting.getLocation().getDescription()#</p>
 		
 		<cfif nextMeeting.getLocation().getMapLink() is not "">
 			<p>
-				<a href="#nextMeeting.getLocation().getMapLink()#">
+				<a href="#nextMeeting.getLocation().getMapLink()#" target="_blank">
 					#getProperty("resourceBundleService").getResourceBundle().getResource("mapoflocation")#
 				</a>
 			</p>
 		</cfif>
-		
-		<p>#nextMeeting.getLocation().getDescription()#</p>
 		
 		<cfif arrayLen(nextMeeting.getPresentations()) gt 0>
 			<h3>#getProperty("resourceBundleService").getResourceBundle().getResource("presentations")#</h3>

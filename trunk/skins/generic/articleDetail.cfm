@@ -12,5 +12,5 @@
 	
 	<p>#article.getContent()#</p>
 	
-	<p><a href="#BuildUrl('articles')#">&lt;&lt;#getProperty("resourceBundleService").getResourceBundle().getResource("backtoarticles")#</a></p>
+	<p><a href="#BuildUrl('articles')#">&lt;&lt; #getProperty("resourceBundleService").getResourceBundle().getResource("backtoarticles")#</a></p>
 </cfoutput>

@@ -5,6 +5,21 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>#event.getArg("pageTitle", getProperty("siteName"))#</title>
 <link href="#getProperty('baseURL')#skins/#getProperty('skin')#/stylesheets/common.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="#getProperty('baseURL')#js/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript">
+<!--
+	$(document).ready(function(){
+
+		$('##suggest').hover(function(){
+			$(this).attr('src','#getProperty('applicationRoot')#skins/#getProperty('skin')#/images/suggest-meeting-topics-over.gif');
+		},function(){
+			$(this).attr('src','#getProperty('applicationRoot')#skins/#getProperty('skin')#/images/suggest-meeting-topics.gif');
+		});
+
+	});
+
+//-->
+</script>
 	<!--- include the form validation libraries if needed --->
 	<cfif event.isArgDefined("includeqForms") AND event.getArg("includeqForms")>
 		<script type="text/javascript" src="#getProperty('baseURL')#js/lib/qforms.js"></script>
@@ -81,7 +96,7 @@
 			<hr />
 			<!-- banner message and building background -->
 			<div id="banner">
-				The Nashville ColdFusion User Group is an official <a href="http://www.adobe.com/cfusion/usergroups/index.cfm">Adobe User Group</a> 
+				The Nashville ColdFusion User Group is an official <a href="http://www.adobe.com/cfusion/usergroups/index.cfm" target="_blank">Adobe User Group</a> 
 		for all developers in the Nashville Tennessee area that are seeking to learn more about Adobe development platforms.
 			</div>
 			<hr />
@@ -114,7 +129,7 @@
 								<p>#nextMeeting.getLocation().getAddress().getAddress1()#,<br />
 								#nextMeeting.getLocation().getAddress().getCity()#, #nextMeeting.getLocation().getAddress().getState()# #nextMeeting.getLocation().getAddress().getPostalCode()#</p>
 								<cfif isDefined("tempLinkMain")>
-									<p><a href="#tempLinkMain#">#getProperty("resourceBundleService").getResourceBundle().getResource("mapoflocation")#</a></p>
+									<p><a href="#tempLinkMain#" target="_blank">#getProperty("resourceBundleService").getResourceBundle().getResource("mapoflocation")#</a></p>
 								</cfif>
 								<p><a href="#BuildUrl('rsvpform', 'meetingID=#nextMeeting.getMeetingID()#')#">#getProperty("resourceBundleService").getResourceBundle().getResource("rsvpforthismeeting")#</a></p>
 							
@@ -129,11 +144,13 @@
 	
 			<cfif news.recordCount gt 0>
 			<h3 class="leftbox header_small">#getProperty("resourceBundleService").getResourceBundle().getResource("latestnews")#</h3>
+			<div class="leftbox features">
 				<cfloop query="news">
-					<div class="leftbox features">
-						<h4>#news.headline#</h4>
-						<p><a href="#BuildUrl('newsdetail', 'newsID=#news.news_id#')#">#getProperty("resourceBundleService").getResourceBundle().getResource("readmore")#</a></p>
-						<p>#getProperty("resourceBundleService").getLocaleUtils().i18nDateTimeFormat(news.dt_to_post, 3, 3)#</p>
+						<p>
+						#getProperty("resourceBundleService").getLocaleUtils().i18nDateTimeFormat(news.dt_to_post, 3, 3)#<br/>
+						#news.headline#<br/>
+						<a href="#BuildUrl('newsdetail', 'newsID=#news.news_id#')#">#getProperty("resourceBundleService").getResourceBundle().getResource("readmore")#</a>
+						</p>
 				</cfloop>
 			</div>
 			</cfif>
@@ -195,10 +212,7 @@
 								</li>
 							</ul>
 	
-				</cfif>
-			
-			
-			
+		</cfif>
 		</div>
 		
 		<hr />
@@ -214,12 +228,11 @@
 		<!-- product sales boxes -->
 		<div id="rightcolumn">
 
-		<img src="#getProperty('applicationRoot')#skins/#getProperty('skin')#/images/cf_appicon.jpg" /> 
+		<a href="http://www.adobe.com/cfusion/usergroups/index.cfm" target="_blank"><img src="#getProperty('applicationRoot')#skins/#getProperty('skin')#/images/adobe_user_group_badge.jpg" /></a> 
 		<br />
 		<br />
 			
-		<img src="#getProperty('applicationRoot')#skins/#getProperty('skin')#/images/adobe_user_group_badge.jpg" />
-
+		<a href="#BuildUrl('contact')#"><img src="#getProperty('applicationRoot')#skins/#getProperty('skin')#/images/suggest-meeting-topics.gif" id="suggest"/></a>
 		<br />
 		<br />
 
@@ -236,10 +249,10 @@
 				<h3>#getProperty("resourceBundleService").getResourceBundle().getResource("links")#</h3>
 				<p>Great links to help you learn all about fine Adobe Products</p>
 				<ul class="borderedlist iconlist">
-							<li><a href="http://www.adobe.com/cfusion/usergroups/index.cfm">Adobe User Groups</a></li>
-							<li><a href="http://www.adobe.com/products/coldfusion">ColdFusion</a></li>
-							<li><a href="http://www.adobe.com/products/flex">Flex</a></li>
-							<li><a href="http://www.adobe.com/go/air/">AIR</a></li>
+							<li><a href="http://www.adobe.com/cfusion/usergroups/index.cfm" target="_blank">Adobe User Groups</a></li>
+							<li><a href="http://www.adobe.com/products/coldfusion" target="_blank">ColdFusion</a></li>
+							<li><a href="http://www.adobe.com/products/flex" target="_blank">Flex</a></li>
+							<li><a href="http://www.adobe.com/go/air/" target="_blank">AIR</a></li>
 
 				</ul>
 			</div>
@@ -248,10 +261,10 @@
 				<h3>Blog Roll</h3>
 				<p>Here is a list of some of our satisfied customers.</p>
 				<ul class="borderedlist iconlist">
-					<li><a href="http://www.trajiklyhip.com/blog" title="Aaron West's Blog">Aaron West</a></li>
-					<li><a href="http://jeremiahx.com" title="The Blog of J.J. Merrick">J.J. Merrick</a></li>
-					<li><a href="http://blog.cutterscrossing.com" title="The Blog of Cutter Blades">Cutter Blades</a></li>
-					<li><a href="http://coldfusionbloggers.org/" title="ColdFusionBloggers.org">ColdFusion Bloggers</a></li>
+					<li><a href="http://www.trajiklyhip.com/blog" title="Aaron West's Blog" target="_blank">Aaron West</a></li>
+					<li><a href="http://jeremiahx.com" title="The Blog of J.J. Merrick" target="_blank">J.J. Merrick</a></li>
+					<li><a href="http://blog.cutterscrossing.com" title="The Blog of Cutter Blades" target="_blank">Cutter Blades</a></li>
+					<li><a href="http://coldfusionbloggers.org/" title="ColdFusionBloggers.org" target="_blank">ColdFusion Bloggers</a></li>
 				</ul>
 			</div>
 			<!-- bottom right information -->
@@ -268,7 +281,7 @@
 	<!-- Start Footer -->
 	<div id="footer">
 		<div class="container">
-			<a id="designby" href="http://www.studio7designs.com/" title="Design by STUDIO7DESIGNS">WEB DESIGN BY STUDIO7DESIGNS</a>
+			<a id="designby" href="http://www.studio7designs.com/" title="Design by STUDIO7DESIGNS" target="_blank">WEB DESIGN BY STUDIO7DESIGNS</a>
 			<ul id="footer_navigation">
 					<li <cfif event.getRequestName() is "home"> class="active"</cfif>>
 						<a href="#getProperty('baseURL')#">

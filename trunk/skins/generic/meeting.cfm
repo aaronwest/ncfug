@@ -15,7 +15,12 @@
 	
 	<p>#meeting.getDescription()#</p>
 	
-	<h3>#getProperty("resourceBundleService").getResourceBundle().getResource("directions")#</h3>
+	<p><strong>#getProperty("resourceBundleService").getResourceBundle().getResource("locationinfo")#</strong><br/>
+	#meeting.getLocation().getAddress().getAddress1()#,
+	#meeting.getLocation().getAddress().getCity()#,
+	#meeting.getLocation().getAddress().getState()#
+	#meeting.getLocation().getAddress().getPostalCode()#<br/>
+	#meeting.getLocation().getDescription()#</p>
 	
 	<cfif meeting.getLocation().getMapLink() is not "">
 		<cfset tempLink = Replace(meeting.getLocation().getMapLink(),"&","&amp;","ALL")>
@@ -25,13 +30,6 @@
 			</a>
 		</p>
 	</cfif>
-	
-	<p>#meeting.getLocation().getAddress().getAddress1()#,
-		#meeting.getLocation().getAddress().getCity()#,
-		#meeting.getLocation().getAddress().getState()#
-		#meeting.getLocation().getAddress().getPostalCode()#</p>
-	
-	<p>#meeting.getLocation().getDescription()#</p>
 
 	<cfif arrayLen(meeting.getPresentations()) gt 0>
 		<h3>#getProperty("resourceBundleService").getResourceBundle().getResource("presentations")#</h3>
@@ -73,9 +71,6 @@
 		</a>
 	</p>
 	
-	<p style="border-top:dotted 1px ##999999;">
-		<a href="#BuildUrl('meetings')#">
-			&lt; #getProperty("resourceBundleService").getResourceBundle().getResource("backtomeetings")#
-		</a>
+	<p><a href="#BuildUrl('meetings')#">&lt;&lt; #getProperty("resourceBundleService").getResourceBundle().getResource("backtomeetings")#</a>
 	</p>
 </cfoutput>
