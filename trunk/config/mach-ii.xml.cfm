@@ -22,9 +22,9 @@
 		<property name="numUpcomingMeetingItems" value="1" />
 		<property name="numPublicNewsItems" value="3" />
 		<property name="siteName" value="Nashville ColdFusion User Group" />
-		<property name="adminEmail" value="jj@themerrickhouse.com" />
-		<property name="contactName" value="J.J. Merrick" />
-		<property name="contactEmail" value="info@ncfug.com" />
+		<property name="adminEmail" value="a.west@me.com" />
+		<property name="contactName" value="Aaron West" />
+		<property name="contactEmail" value="a.west@me.com" />
 		<property name="notificationFromAddress" value="info@ncfug.com" />
 		<property name="baseURL" value="http://www.ncfug.com/" />
 		<property name="personImageFilePath" value="uploads/personImages/" />
@@ -235,7 +235,7 @@
 		<event-handler event="processContactForm" access="public">
 			<event-mapping event="success" mapping="thankyou_redirect" />
 			<event-mapping event="failure" mapping="contact" />
-			<event-bean name="contact" type="org.capitolhillusergroup.contact.Contact" fields="name,email,comments" />
+			<event-bean name="contact" type="org.capitolhillusergroup.contact.Contact" fields="name,email,reason,comments" />
 			<notify listener="captchaListener" method="validateCaptcha" />
 			<notify listener="contactListener" method="processContactForm" />
 		</event-handler>
