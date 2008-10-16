@@ -5,7 +5,7 @@
 		<p style="color:red;">#event.getArg("message")#</p>
 	</cfif>
 	
-	<form id="loginForm" action="#getProperty('baseURL')##getProperty('eventParameter')#/processLoginForm" class="standardForm" method="post">
+	<form id="loginForm" action="#BuildUrl('processLoginForm')#" class="standardForm" method="post">
 		<fieldset>
 
 			<label for="email"><span class="label"><span class="required">*</span>#getProperty("resourceBundleService").getResourceBundle().getResource("email")#</span>
