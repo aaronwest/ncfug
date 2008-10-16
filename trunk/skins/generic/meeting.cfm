@@ -68,13 +68,13 @@
 	</cfif>
 
 	<p>
-		<a href="#getProperty('baseURL')##getProperty('eventParameter')#/rsvpform/meetingID/#meeting.getMeetingID()#">
+		<a href="#BuildUrl('rsvpform', 'meetingID=#meeting.getMeetingID()#')#">
 			#getProperty("resourceBundleService").getResourceBundle().getResource("rsvpforthismeeting")#
 		</a>
 	</p>
 	
 	<p style="border-top:dotted 1px ##999999;">
-		<a href="#getProperty('baseURL')##getProperty('eventParameter')#/meetings">
+		<a href="#BuildUrl('meetings')#">
 			&lt; #getProperty("resourceBundleService").getResourceBundle().getResource("backtomeetings")#
 		</a>
 	</p>

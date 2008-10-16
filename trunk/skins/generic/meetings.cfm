@@ -15,7 +15,7 @@
 							#getProperty("resourceBundleService").getLocaleUtils().i18nDateTimeFormat(meetings[i].getDtMeeting(), 3, 3)#
 						</td>
 						<td>
-							<a href="#getProperty('baseURL')##getProperty('eventParameter')#/meeting/meetingID/#meetings[i].getMeetingID()#">#meetings[i].getTitle()#</a>
+							<a href="#BuildUrl('meeting', 'meetingID=#meetings[i].getMeetingID()#')#">#meetings[i].getTitle()#</a>
 						</td>
 						<td>
 							<cfif ArrayLen(meetings[i].getPresentations()) gt 0>
@@ -45,5 +45,5 @@
 	</cfif>
 	<br />
 	<br />
-	<h3><a href="#getProperty('baseURL')##getProperty('eventParameter')#/contact">#getProperty("resourceBundleService").getResourceBundle().getResource("suggestameetingtopic")#</a></h3>
+	<h3><a href="#BuildUrl('contact')#">#getProperty("resourceBundleService").getResourceBundle().getResource("suggestameetingtopic")#</a></h3>
 </cfoutput>
