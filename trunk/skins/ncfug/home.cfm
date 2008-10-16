@@ -13,14 +13,14 @@
 	<p>
 		If you're interested in hearing 
 		about a particular topic, or you're interested in presenting, please 
-		<a href="#getProperty('baseURL')##getProperty('eventParameter')#/contact">fill out our contact form</a>.
+		<a href="#BuildUrl('contact')#">fill out our contact form</a>.
 	</p>
 	
 	<h2>#getProperty("resourceBundleService").getResourceBundle().getResource("nextmeeting")#</h2>
 	
 	<cfif isDefined("nextMeeting")>
 		<h3>
-			<a href="#getProperty('baseURL')##getProperty('eventParameter')#/meeting/meetingID/#nextMeeting.getMeetingID()#">#nextMeeting.getTitle()#</a><br />
+			<a href="#BuildUrl('meeting', 'meetingID=#nextMeeting.getMeetingID()#')#">#nextMeeting.getTitle()#</a><br />
 		</h3>
 		<p>	#getProperty("resourceBundleService").getLocaleUtils().i18nDateTimeFormat(nextMeeting.getDTMeeting(), 3, 3)#<br />
 			#nextMeeting.getLocation().getLocation()#<br />
@@ -86,7 +86,7 @@
 		</cfif>
 
 		<p>
-			<a href="#getProperty('baseURL')##getProperty('eventParameter')#/rsvpform/meetingID/#nextMeeting.getMeetingID()#">
+			<a href="#BuildUrl('rsvpform', 'meetingID=#nextMeeting.getMeetingID()#')#">
 				#getProperty("resourceBundleService").getResourceBundle().getResource("rsvpforthismeeting")#
 			</a>
 		</p>
