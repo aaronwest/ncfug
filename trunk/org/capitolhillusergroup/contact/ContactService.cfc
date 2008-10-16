@@ -32,7 +32,8 @@
 		<cfset email.setFromEmail("#arguments.contact.getName()# <#arguments.contact.getEmail()#>") />
 		<cfset email.setToEmail(arguments.toEmail) />
 		<cfset email.setSubject(arguments.emailSubject) />
-		<cfset email.setBody(arguments.contact.getComments()) />
+		<cfset email.setEmailType("html")>
+		<cfset email.setBody("Contact reason:<br/>" & arguments.contact.getReason() & "<br/><br/>" & "Comments:<br/>" & arguments.contact.getComments()) />
 		
 		<cfset getNotificationService().sendEmail(email) />
 	</cffunction>

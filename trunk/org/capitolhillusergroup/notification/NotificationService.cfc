@@ -26,7 +26,8 @@
 				subject="#arguments.email.getSubject()#" 
 				cc="#arguments.email.getCcEmail()#" 
 				bcc="#arguments.email.getBccEmail()#" 
-				replyto="#arguments.email.getReplyToEmail()#">
+				replyto="#arguments.email.getReplyToEmail()#"
+				type="#arguments.email.getEmailType()#">
 #arguments.email.getBody()#
 		</cfmail>
 		<cfcatch type="any">

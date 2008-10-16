@@ -5,7 +5,7 @@
 	
 	<h2>#getProperty("resourceBundleService").getResourceBundle().getResource("contact")#</h2>
 	
-	<form id="contactForm" action="index.cfm?#getProperty('eventParameter')#=processContactForm" class="standardForm" method="post">
+	<form id="contactForm" action="#BuildUrl('processContactForm')#" class="standardForm" method="post">
 		
 		<fieldset>
 
