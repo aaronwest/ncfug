@@ -57,11 +57,11 @@
 		<cfset var email = getEmailService().getEmailBean() />
 		
 		<cfif user.getPersonID() is not "" AND user.getAudit().getIsActive()>
-			<!--- ASW: 10.15.2008 Adding the e-mail sending portion as if was magically left out in the original chug app. --->
 			<cfset email.setFromEmail(getProperty("contactName") & "<" & getProperty("notificationFromAddress") & ">") />
 			<cfset email.setToEmail(user.getEmail()) />
 			<cfset email.setSubject("Forgotten Password for site: " & getProperty("siteName")) />
-			<cfset email.setBody("Oooh snap! You forgot your password for site: " & getProperty("siteName") & ". Well, here it is: " & user.getPassword()) />
+			<cfset email.setEmailType("html")>
+			<cfset email.setBody("Oooh snap! You forgot your password for site: " & getProperty("siteName") & ".<br/><br/>Well, here it is: " & user.getPassword()) />
 			
 			<cfset getNotificationService().sendEmail(email) />
 			<cfset exitEvent = "forgotpassword_redirect" />
