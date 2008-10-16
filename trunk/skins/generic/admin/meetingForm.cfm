@@ -5,7 +5,7 @@
 		<p class="message">#event.getArg("message")#</p>
 	</cfif>
 	
-	<form id="meetingForm" class="standardForm" action="index.cfm?#getProperty('eventParameter')#=admin.processMeetingForm" method="post">
+	<form id="meetingForm" class="standardForm" action="#BuildUrl('admin.processMeetingForm')#" method="post">
 		
 		<fieldset>
 			
@@ -56,7 +56,7 @@
 			</label>
 			
 			<label for="dtMeeting"><span class="label"><span class="required">*</span>#getProperty("resourceBundleService").getResourceBundle().getResource("meetingdatetime")#</span>
-				<input type="text" name="dtMeeting" id="dtMeeting" size="30" maxlength="30" readonly="readonly" /><img src="js/calendar/calbutton.gif" id="calendarTrigger" class="button" /><br />
+				<input type="text" name="dtMeeting" id="dtMeeting" size="30" maxlength="30" readonly="readonly" /><img src="#getProperty('baseURL')#js/calendar/calbutton.gif" id="calendarTrigger" class="button" /><br />
 			</label>
 			
 			<label for="isActive"><span class="label">#getProperty("resourceBundleService").getResourceBundle().getResource("active")#</span>

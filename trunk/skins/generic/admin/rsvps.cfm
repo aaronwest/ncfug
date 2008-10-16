@@ -28,10 +28,10 @@
 						<td><a href="mailto:#rsvps.email#">#rsvps.email#</a></td>
 						<td class="datetime">#getProperty("resourceBundleService").getLocaleUtils().i18nDateTimeFormat(rsvps.dt_created, 3, 3)#</td>
 						<td class="action">
-							<a href="index.cfm?#getProperty('eventParameter')#=admin.showRSVPForm&amp;rsvpID=#rsvps.rsvp_id#">
+							<a href="#BuildUrl('admin.showRSVPForm', 'rsvpID=#rsvps.rsvp_id#')#">
 								#getProperty("resourceBundleService").getResourceBundle().getResource("edit")#
 							</a>
-							<a href="index.cfm?#getProperty('eventParameter')#=admin.deleteRSVP&amp;rsvpID=#rsvps.rsvp_id#">
+							<a href="#BuildUrl('admin.deleteRSVP', 'rsvpID=#rsvps.rsvp_id#')#">
 								#getProperty("resourceBundleService").getResourceBundle().getResource("delete")#
 							</a>
 						</td>
@@ -47,7 +47,7 @@
 		
 		<p>#getProperty("resourceBundleService").getResourceBundle().getResource("emailrsvpsnote")#</p>
 		
-		<form id="rsvpNotificationForm" class="standardForm" action="index.cfm?#getProperty('eventParameter')#=admin.processRSVPNotificationForm" method="post">
+		<form id="rsvpNotificationForm" class="standardForm" action="#BuildUrl('admin.processRSVPNotificationForm')#" method="post">
 			
 			<fieldset>
 			

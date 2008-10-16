@@ -6,14 +6,13 @@
 	</cfif>
 	
 	<h2>
+		TODO: THIS PAGE IS NOT DISPLAYING ALL THE RIGHT DATA AND THE FORM EDITING DOESN'T WORK!!!
 		#meeting.getTitle()#<br />
 		#getProperty("resourceBundleService").getLocaleUtils().i18nDateTimeFormat(meeting.getDTMeeting(), 3, 3)#<br />
 		#meeting.getLocation().getLocation()#
-		
-		#meeting.getDTMeeting()#
 	</h2>
 
-	<form id="rsvpForm" action="index.cfm?#getProperty('eventParameter')#=admin.processRSVPForm" class="standardForm" method="post">
+	<form id="rsvpForm" action="#BuildUrl('admin.processRSVPForm')#" class="standardForm" method="post">
 		
 		<fieldset>
 

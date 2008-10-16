@@ -4,10 +4,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>#event.getArg("pageTitle", getProperty("siteName"))#</title>
-<link href="#getProperty('applicationRoot')#skins/#getProperty('skin')#/stylesheets/common.css" rel="stylesheet" type="text/css" />
+<link href="#getProperty('baseURL')#skins/#getProperty('skin')#/stylesheets/common.css" rel="stylesheet" type="text/css" />
 	<!--- include the form validation libraries if needed --->
 	<cfif event.isArgDefined("includeqForms") AND event.getArg("includeqForms")>
-		<script type="text/javascript" src="js/lib/qforms.js"></script>
+		<script type="text/javascript" src="#getProperty('baseURL')#js/lib/qforms.js"></script>
 		<script type="text/javascript">
 			<!--//--><![CDATA[//><!--
 			qFormAPI.setLibraryPath("js/lib/");
@@ -17,12 +17,12 @@
 	</cfif>
 		<!--- include the calendar if needed --->	
 	<cfif event.isArgDefined("includeCalendar") AND event.getArg("includeCalendar")>
-		<style type="text/css">@import url(js/calendar/skins/aqua/theme.css);</style>
-		<script type="text/javascript" src="js/calendar/calendar.js"></script>
-		<script type="text/javascript" src="js/calendar/lang/calendar-en.js"></script>
-		<script type="text/javascript" src="js/calendar/calendar-setup.js"></script>
+		<style type="text/css">@import url(#getProperty('baseURL')#js/calendar/skins/aqua/theme.css);</style>
+		<script type="text/javascript" src="#getProperty('baseURL')#js/calendar/calendar.js"></script>
+		<script type="text/javascript" src="#getProperty('baseURL')#js/calendar/lang/calendar-en.js"></script>
+		<script type="text/javascript" src="#getProperty('baseURL')#js/calendar/calendar-setup.js"></script>
 	</cfif>
-	<link rel="shortcut icon" href="#getProperty('applicationRoot')#skins/#getProperty('skin')#/images/favicon.ico">	
+	<link rel="shortcut icon" href="#getProperty('baseURL')#skins/#getProperty('skin')#/images/favicon.ico">	
 </head>
 <body>
 	<!-- Start Header -->

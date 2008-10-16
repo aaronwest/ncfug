@@ -2,7 +2,7 @@
 	<script type="text/javascript">
 		function deleteMeeting(meetingID) {
 			if(confirm("#getProperty('resourceBundleService').getResourceBundle().getResource('confirmmeetingdelete')#")) {
-				location.href = "index.cfm?#getProperty('eventParameter')#=admin.deleteMeeting&meetingID=" + meetingID;
+				location.href = "#BuildUrl('admin.deleteMeeting')#meetingID/" + meetingID;
 			}
 		}
 	</script>
@@ -15,17 +15,17 @@
 	
 	<ul>
 		<li>
-			<a href="index.cfm?#getProperty('eventParameter')#=admin.showMeetingForm">
+			<a href="#BuildUrl('admin.showMeetingForm')#">
 				#getProperty("resourceBundleService").getResourceBundle().getResource("addnewmeeting")#
 			</a>
 		</li>
 		<li>
-			<a href="index.cfm?#getProperty('eventParameter')#=admin.showLocationMenu">
+			<a href="#BuildUrl('admin.showLocationMenu')#">
 				#getProperty("resourceBundleService").getResourceBundle().getResource("managelocations")#
 			</a>
 		</li>
 		<li>
-			<a href="index.cfm?#getProperty('eventParameter')#=admin.showPresentationMenu">
+			<a href="#BuildUrl('admin.showPresentationMenu')#">
 				#getProperty("resourceBundleService").getResourceBundle().getResource("managepresentations")#
 			</a>
 		</li>
@@ -52,10 +52,10 @@
 							</cfif>
 						</td>
 						<td class="action extended">
-							<a href="index.cfm?#getProperty('eventParameter')#=admin.showRSVPs&amp;meetingID=#meetings.meeting_id#">
+							<a href="#BuildUrl('admin.showRSVPs', 'meetingID=#meetings.meeting_id#')#">
 								#getProperty("resourceBundleService").getResourceBundle().getResource("showrsvps")#
 							</a>
-							<a href="index.cfm?#getProperty('eventParameter')#=admin.showMeetingForm&amp;meetingID=#meetings.meeting_id#">
+							<a href="#BuildUrl('admin.showMeetingForm', 'meetingID=#meetings.meeting_id#')#">
 								#getProperty("resourceBundleService").getResourceBundle().getResource("edit")#
 							</a>
 							<a href="javascript:void(0);" onClick="javascript:deleteMeeting('#meetings.meeting_id#');">

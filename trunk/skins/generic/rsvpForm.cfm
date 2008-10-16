@@ -5,13 +5,11 @@
 		<p style="color:red;">#event.getArg("message")#</p>
 	</cfif>
 	
-	<h3>
+	<h2>
 		#getProperty("resourceBundleService").getResourceBundle().getResource("youarersvpingfor")#:<br />
 		#meeting.getTitle()#<br />
 		#getProperty("resourceBundleService").getLocaleUtils().i18nDateTimeFormat(meeting.getDTMeeting(), 3, 3)#<br />
 		#meeting.getLocation().getLocation()#
-		
-		#meeting.getDTMeeting()#
 	</h2>
 
 	<form id="rsvpForm" action="#BuildUrl('processRSVPForm', 'meetingID=#meeting.getMeetingID()#')#" class="standardForm" method="post">
