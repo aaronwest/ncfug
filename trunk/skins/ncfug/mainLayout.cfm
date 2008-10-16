@@ -189,7 +189,7 @@
 									</a>
 								</li>
 								<li>
-									<a href="#BuildUrl('member.showProfile')#">
+									<a href="#BuildUrl('member.showPersonForm')#">
 										#getProperty("resourceBundleService").getResourceBundle().getResource("manageyourprofile")#
 									</a>
 								</li>
