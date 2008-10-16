@@ -10,7 +10,7 @@
 				</tr>
 				<cfloop query="news">
 					<tr<cfif (news.currentRow MOD 2) EQ 0> class="odd"</cfif>>
-						<td><a href="#BuildUrl('newsdetail')#newsID/#news.news_id#">#news.headline#</a></td>
+						<td><a href="#BuildUrl('newsdetail', 'newsID=#news.news_id#')#">#news.headline#</a></td>
 						<td class="datetime">#getProperty("resourceBundleService").getLocaleUtils().i18nDateTimeFormat(news.dt_to_post, 3, 3)#</td>
 					</tr>
 				</cfloop>
