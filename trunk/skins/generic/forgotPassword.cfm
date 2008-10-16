@@ -5,7 +5,7 @@
 	
 	<h2>#getProperty("resourceBundleService").getResourceBundle().getResource("forgotpassword")#</h2>
 	
-	<form id="forgotpasswordForm" action="index.cfm?#getProperty('eventParameter')#=processForgotPassword" class="standardForm" method="post">
+	<form id="forgotpasswordForm" action="#BuildUrl('processForgotPassword')#" class="standardForm" method="post">
 		
 		<fieldset>
 
