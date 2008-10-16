@@ -42,7 +42,7 @@
 		<cfset var message = getProperty("resourceBundleService").getResourceBundle().getResource("forgotpasswordfailed") />
 		
 		<cfif user.getPersonID() is not "" AND user.getAudit().getIsActive()>
-			<cfset exitEvent = "showForgotPassword_redirect" />
+			<cfset exitEvent = "forgotpassword_redirect" />
 			<cfset message = getProperty("resourceBundleService").getResourceBundle().getResource("forgotpasswordsuccessful") />
 		</cfif>
 		
