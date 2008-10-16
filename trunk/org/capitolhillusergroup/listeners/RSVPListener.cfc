@@ -119,10 +119,11 @@
 		<cfset var rsvps = arguments.event.getArg("rsvps") />
 		<cfset var message = getProperty("resourceBundleService").getResourceBundle().getResource("emailrsvpssucceeded") />
 		
-		<cfset email.setFromEmail(getProperty("contactEmail")) />
+		<cfset email.setFromEmail(getProperty("contactName") & "<" & getProperty("notificationFromAddress") & ">") />
 		<cfset email.setBccEmail(getProperty("contactEmail")) />
 		<cfset email.setSubject(arguments.event.getArg("subject")) />
-		<cfset email.setBody(arguments.event.getArg("message")) />
+		<cfset email.setEmailType("html")>
+		<cfset email.setBody(arguments.event.getArg("emailBody")) />
 		
 		<cftry>
 			<cfset getNotificationService().sendEmailUsingRecipientQuery(email, rsvps) />
