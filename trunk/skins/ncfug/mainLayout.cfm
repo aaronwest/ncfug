@@ -122,11 +122,10 @@
 							<cfif nextMeeting.getLocation().getMapLink() is not "">
 								<cfset tempLinkMain = Replace(nextMeeting.getLocation().getMapLink(),"&","&amp;","ALL")>
 							</cfif>
-							
 								<h2>#getProperty("resourceBundleService").getLocaleUtils().i18nDateTimeFormat(upcomingMeetings[i].getDTMeeting(), 3, 3)#</h2>
-								<p><a href="#BuildUrl('meeting', 'meetingID=#upcomingMeetings[i].getMeetingID()#')#">#upcomingMeetings[i].getTitle()#</a><br />
-								#upcomingMeetings[i].getLocation().getLocation()#</p>
-								<p>#nextMeeting.getLocation().getAddress().getAddress1()#,<br />
+								<p><a href="#BuildUrl('meeting', 'meetingID=#upcomingMeetings[i].getMeetingID()#')#">#upcomingMeetings[i].getTitle()#</a></p>
+								<p>#upcomingMeetings[i].getLocation().getLocation()#<br/>
+								#nextMeeting.getLocation().getAddress().getAddress1()#,<br />
 								#nextMeeting.getLocation().getAddress().getCity()#, #nextMeeting.getLocation().getAddress().getState()# #nextMeeting.getLocation().getAddress().getPostalCode()#</p>
 								<cfif isDefined("tempLinkMain")>
 									<p><a href="#tempLinkMain#" target="_blank">#getProperty("resourceBundleService").getResourceBundle().getResource("mapoflocation")#</a></p>
@@ -228,16 +227,15 @@
 		<!-- product sales boxes -->
 		<div id="rightcolumn">
 
-		<a href="http://www.adobe.com/cfusion/usergroups/index.cfm" target="_blank"><img src="#getProperty('applicationRoot')#skins/#getProperty('skin')#/images/adobe_user_group_badge.jpg" /></a> 
-		<br />
-		<br />
-			
 		<a href="#BuildUrl('contact')#"><img src="#getProperty('applicationRoot')#skins/#getProperty('skin')#/images/suggest-meeting-topics.gif" id="suggest"/></a>
 		<br />
 		<br />
 
+		<a href="http://www.adobe.com/cfusion/usergroups/index.cfm" target="_blank"><img src="#getProperty('applicationRoot')#skins/#getProperty('skin')#/images/adobe_user_group_badge.jpg" /></a> 
+		<br />
+		<br />			
 
-<!-- Sponsors -->
+		<!-- Sponsors -->
 		<a href="http://www.dealerskins.com/" target="_blank"><img src="#getProperty('applicationRoot')#skins/#getProperty('skin')#/images/sponsors/dealerskins.gif" /></a> 
 		<br />
 		<br />
@@ -357,6 +355,16 @@
 			</ul>
 		</div>
 	</div>
+	<cfif Len(getProperty("googleAnalyticsUAccount","")) GT 0>
+		<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+		<script type="text/javascript">
+		var pageTracker = _gat._getTracker("UA-3548918-3");
+		pageTracker._trackPageview();
+		</script>
+	</cfif>
 </body>
 </cfoutput>
 </html>
