@@ -13,7 +13,7 @@
 			</label>
 			
 			<label for="password"><span class="label"><span class="required">*</span>#getProperty("resourceBundleService").getResourceBundle().getResource("password")#</span>
-				<input type="password" id="password" name="password" size="30" maxlength="10" tabindex="2" /><br />
+				<input type="password" id="password" name="password" size="30" maxlength="50" tabindex="2" /><br />
 			</label>
 			
 			<div class="submit-wrap">
