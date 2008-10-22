@@ -25,7 +25,7 @@
 		<script type="text/javascript" src="#getProperty('baseURL')#js/lib/qforms.js"></script>
 		<script type="text/javascript">
 			<!--//--><![CDATA[//><!--
-			qFormAPI.setLibraryPath("/js/lib/");
+			qFormAPI.setLibraryPath("#getProperty('baseURL')#js/lib/");
 			qFormAPI.include("*");
 			//--><!]]>
 		</script>
