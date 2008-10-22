@@ -17,7 +17,7 @@
 		<property name="dbPassword" value="8KrJM9qE" />
 		<property name="dbVersion" value="0.1" />
 		
-		<property name="devMode" value="true" />
+		<property name="devMode" value="false" />
 		<property name="numPreviousMeetingItems" value="4" />
 		<property name="numUpcomingMeetingItems" value="1" />
 		<property name="numPublicNewsItems" value="3" />
