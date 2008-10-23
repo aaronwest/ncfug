@@ -58,7 +58,6 @@
 		<cfargument name="event" type="MachII.framework.Event" required="true" />
 		
 		<cfset var rsvp = arguments.event.getArg("rsvp") />
-		<cfset var audit = createObject("component", "org.capitolhillusergroup.audit.Audit").init() />
 		<cfset var message = "" />
 		<cfset var action = "" />
 		<cfset var exitEvent = "success" />
@@ -71,28 +70,28 @@
 			<cfset message = getProperty("resourceBundleService").getResourceBundle().getResource("youhavealreadyrsvped") />
 		<cfelse>
 			<!--- haven't already RSVPed, so save it --->
-			<cfset audit.setIsActive(arguments.event.getArg("isActive", 1)) />
+			<cfset rsvp.getAudit().setIsActive(arguments.event.getArg("isActive", 1)) />
 			
 			<!--- if this person's email address is in the database, grab their person id --->
 			<cfset rsvp.setPersonID(getPersonService().getPersonIDByEmail(rsvp.getEmail()))>
-			
-			<cfif Len(Trim(rsvp.getRSVPID())) GT 0>
+			<cfset session.outsideblock = rsvp.getRSVPID()>
+			<cfif Len(Trim(rsvp.getRSVPID())) eq 0>
+				<cfset session.insideblockone = "inside1">
 				<cfset action = "add" />
 				<cfset message = getProperty("resourceBundleService").getResourceBundle().getResource("addrsvpsuccessful") />
 				<cfif getSessionService().isAuthenticated()>
-					<cfset audit.setCreatedByID(getSessionService().getUser().getPersonID()) />
+					<cfset rsvp.getAudit().setCreatedByID(getSessionService().getUser().getPersonID()) />
 				</cfif>
-				<cfset audit.setDTCreated(getProperty("resourceBundleService").getLocaleUtils().toEpoch(now())) />
-				<cfset audit.setIPCreated(CGI.REMOTE_ADDR) />
+				<cfset rsvp.getAudit().setDTCreated(getProperty("resourceBundleService").getLocaleUtils().toEpoch(now())) />
+				<cfset rsvp.getAudit().setIPCreated(CGI.REMOTE_ADDR) />
 			<cfelse>
+				<cfset session.insideblocktwo = "inside2">
 				<cfset action = "update" />
 				<cfset message = getProperty("resourceBundleService").getResourceBundle().getResource("updatersvpsuccessful") />
-				<cfset audit.setModifiedByID(getSessionService().getUser().getPersonID()) />
-				<cfset audit.setDTModified(getProperty("resourceBundleService").getLocaleUtils().toEpoch(now())) />
-				<cfset audit.setIPModified(CGI.REMOTE_ADDR) />
+				<cfset rsvp.getAudit().setModifiedByID(getSessionService().getUser().getPersonID()) />
+				<cfset rsvp.getAudit().setDTModified(getProperty("resourceBundleService").getLocaleUtils().toEpoch(now())) />
+				<cfset rsvp.getAudit().setIPModified(CGI.REMOTE_ADDR) />
 			</cfif>
-			
-			<cfset rsvp.setAudit(audit) />
 			
 			<cftry>
 				<cfset getRSVPService().saveRSVP(rsvp) />
