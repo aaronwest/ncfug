@@ -3,8 +3,8 @@
 
 <cfquery name="qryRegistrants" datasource="ncfug">
 	SELECT first_name, last_name, email
-	FROM RSVP
-	WHERE meeting_ID = <cfqueryparam value="#form.meeting_ID#" cfsqltype="cf_sql_varchar">
+	FROM rsvp
+	WHERE meeting_ID = <cfqueryparam value="#FORM.meeting_id#" cfsqltype="cf_sql_varchar">
 	and email NOT IN (<cfqueryparam value="#variables.excludelist#" list="true" cfsqltype="cf_sql_varchar">)
 	ORDER BY RAND() LIMIT 0,1
 </cfquery>
