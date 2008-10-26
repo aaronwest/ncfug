@@ -5,7 +5,7 @@
 		<p class="message">#event.getArg("message")#</p>
 	</cfif>
 	
-	<form id="presentationForm" class="standardForm" action="index.cfm?#getProperty('eventParameter')#=admin.processPresentationForm" method="post" enctype="multipart/form-data">
+	<form id="presentationForm" class="standardForm" action="#BuildUrl('admin.processPresentationForm')#" method="post" enctype="multipart/form-data">
 		<fieldset>
 			<label for="title"><span class="label"><span class="required">*</span>#getProperty("resourceBundleService").getResourceBundle().getResource("title")#</span>
 				<input type="text" id="title" name="title" size="50" maxlength="250" value="#presentation.getTitle()#" /></td>
@@ -53,7 +53,7 @@
 				<cfif presentation.getPresentationFile() is not ""><br />
 					<span class="detail">
 						#getProperty("resourceBundleService").getResourceBundle().getResource("currentfile")#: 
-						#presentation.getPresentationFileTitle()# (<a href="#getProperty('presentationFilePath')##presentation.getPresentationFile()#">#presentation.getPresentationFile()#</a>)<br />
+						#presentation.getPresentationFileTitle()# (<a href="#getProperty('baseURL')##getProperty('presentationFilePath')##presentation.getPresentationFile()#">#presentation.getPresentationFile()#</a>)<br />
 						<label for="deleteFile">
 							<input type="checkbox" id="deleteFile" name="deleteFile" class="checkbox" value="1" />
 							#getProperty("resourceBundleService").getResourceBundle().getResource("deletefile")#

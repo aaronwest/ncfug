@@ -2,7 +2,7 @@
 	<script type="text/javascript">
 		function deletePerson(personID) {
 			if(confirm("#getProperty('resourceBundleService').getResourceBundle().getResource('confirmpersondelete')#")) {
-				location.href = "index.cfm?#getProperty('eventParameter')#=admin.deletePerson&personID=" + personID;
+				location.href = "#BuildUrl('admin.deletePerson')#personID/" + personID;
 			}
 		}
 		function toggleActive(personID,toggle) {
@@ -14,7 +14,7 @@
 				toggleDialog = "#getProperty('resourceBundleService').getResourceBundle().getResource('confirmpersonactive')#";
 			}
 			if(confirm(toggleDialog)) {
-				location.href = "index.cfm?#getProperty('eventParameter')#=admin.updateStatusPerson&personID=" + personID + "&status=" + toggle;
+				location.href = "#BuildUrl('admin.updateStatusPerson')#personID/" + personID + "/status/" + toggle;
 			}
 		}
 	</script>
@@ -27,27 +27,27 @@
 	
 	<ul>
 		<li>
-			<a href="index.cfm?#getProperty('eventParameter')#=admin.showPersonForm">
+			<a href="#BuildUrl('admin.showPersonForm')#">
 				#getProperty("resourceBundleService").getResourceBundle().getResource("addnewperson")#
 			</a>
 		</li>
 		<li>
-			<a href="index.cfm?#getProperty('eventParameter')#=admin.showBoardPositionMenu">
+			<a href="#BuildUrl('admin.showBoardPositionMenu')#">
 				#getProperty("resourceBundleService").getResourceBundle().getResource("manageboardpositions")#
 			</a>
 		</li>
 		<li>
-			<a href="index.cfm?#getProperty('eventParameter')#=admin.showIMTypeMenu">
+			<a href="#BuildUrl('admin.showIMTypeMenu')#">
 				#getProperty("resourceBundleService").getResourceBundle().getResource("manageimtypes")#
 			</a>
 		</li>
 		<li>
-			<a href="index.cfm?#getProperty('eventParameter')#=admin.showOrganizationMenu">
+			<a href="#BuildUrl('admin.showOrganizationMenu')#">
 				#getProperty("resourceBundleService").getResourceBundle().getResource("manageorganizations")#
 			</a>
 		</li>
 		<li>
-			<a href="index.cfm?#getProperty('eventParameter')#=admin.showRoleMenu">
+			<a href="#BuildUrl('admin.showRoleMenu')#">
 				#getProperty("resourceBundleService").getResourceBundle().getResource("manageroles")#
 			</a>
 		</li>
@@ -66,7 +66,7 @@
 				</tr>
 				<cfloop query="people">
 					<tr<cfif (people.currentRow MOD 2) EQ 0> class="odd"</cfif>>
-						<td<cfif people.is_active EQ 0> class="inactive"</cfif>>#people.last_name#, #people.first_name#</td>
+						<td>#people.last_name#, #people.first_name#</td>
 						<td><a href="mailto:#people.email#">#people.email#</a></td>
 						<td>#people.role#</td>
 						<td class="active">
@@ -84,7 +84,7 @@
 							</cfif>
 						</td>
 						<td class="action">
-							<a href="index.cfm?#getProperty('eventParameter')#=admin.showPersonForm&amp;personID=#people.person_id#">
+							<a href="#BuildUrl('admin.showPersonForm')#personID/#people.person_id#">
 								#getProperty("resourceBundleService").getResourceBundle().getResource("edit")#
 							</a>
 							<a href="javascript:deletePerson('#people.person_id#');">

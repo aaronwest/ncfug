@@ -2,7 +2,7 @@
 	<script type="text/javascript">
 		function deletePresentation(presentationID) {
 			if(confirm("#getProperty('resourceBundleService').getResourceBundle().getResource('confirmpresentationdelete')#")) {
-				location.href = "index.cfm?#getProperty('eventParameter')#=admin.deletePresentation&presentationID=" + presentationID;
+				location.href = "#BuildUrl('admin.deletePresentation')#presentationID/" + presentationID;
 			}
 		}
 	</script>
@@ -15,7 +15,7 @@
 	
 	<ul>
 		<li>
-			<a href="index.cfm?#getProperty('eventParameter')#=admin.showPresentationForm">
+			<a href="#BuildUrl('admin.showPresentationForm')#">
 				#getProperty("resourceBundleService").getResourceBundle().getResource("addnewpresentation")#
 			</a>
 		</li>
@@ -51,7 +51,7 @@
 							</cfif>
 						</td>
 						<td class="action">
-							<a href="index.cfm?#getProperty('eventParameter')#=admin.showPresentationForm&amp;presentationID=#presentation.getPresentationID()#">
+							<a href="#BuildUrl('admin.showPresentationForm')#presentationID/#presentation.getPresentationID()#">
 								#getProperty("resourceBundleService").getResourceBundle().getResource("edit")#
 							</a>
 							<a href="javascript:void(0);" onClick="javascript:deletePresentation('#presentation.getPresentationID()#');">

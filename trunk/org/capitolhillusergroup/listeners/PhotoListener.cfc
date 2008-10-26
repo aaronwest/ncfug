@@ -51,7 +51,7 @@
 		
 		<cfif photo.getPhotoID() is "">
 			<cfset action = "add" />
-			<cfset message = getProperty("resourceBundleService").getResourceBundle().getResource("addphotouccessful") />
+			<cfset message = getProperty("resourceBundleService").getResourceBundle().getResource("addphotosuccessful") />
 			<cfset audit.setCreatedByID(getSessionService().getUser().getPersonID()) />
 			<cfset audit.setDTCreated(getProperty("resourceBundleService").getLocaleUtils().toEpoch(now())) />
 			<cfset audit.setIPCreated(CGI.REMOTE_ADDR) />

@@ -2,13 +2,13 @@
 	<script type="text/javascript">
 		function deleteBoardPosition(boardPositionID) {
 			if(confirm("#getProperty('resourceBundleService').getResourceBundle().getResource('confirmboardpositiondelete')#")) {
-				location.href = "index.cfm?#getProperty('eventParameter')#=admin.deleteBoardPosition&boardPositionID=" + boardPositionID;
+				location.href = "#BuildUrl('admin.deleteBoardPosition')#boardPositionID/" + boardPositionID;
 			}
 		}
 		
 		function deleteBoardMember(boardPositionID) {
 			if(confirm("#getProperty('resourceBundleService').getResourceBundle().getResource('confirmboardmemberdelete')#")) {
-				location.href = "index.cfm?#getProperty('eventParameter')#=admin.deleteBoardMember&amp;boardPositionID=" + boardPositionID;
+				location.href = "#BuildUrl('admin.deleteBoardMember')#boardPositionID/" + boardPositionID;
 			}
 		}
 	</script>
@@ -21,7 +21,7 @@
 	
 	<ul>
 		<li>
-			<a href="index.cfm?#getProperty('eventParameter')#=admin.showBoardPositionForm">
+			<a href="#BuildUrl('admin.showBoardPositionForm')#">
 				#getProperty("resourceBundleService").getResourceBundle().getResource("addnewboardposition")#
 			</a>
 		</li>
@@ -38,7 +38,7 @@
 					<tr<cfif (boardPositions.currentRow MOD 2) EQ 0> class="odd"</cfif>>
 						<td>#boardPositions.board_position#</td>
 						<td class="action">
-							<a href="index.cfm?#getProperty('eventParameter')#=admin.showBoardPositionForm&amp;boardPositionID=#boardPositions.board_position_id#">
+							<a href="#BuildUrl('admin.showBoardPositionForm')#boardPositionID/#boardPositions.board_position_id#">
 								#getProperty("resourceBundleService").getResourceBundle().getResource("edit")#
 							</a>
 							<a href="javascript:void(0);" onClick="javascript:deleteBoardPosition('#boardPositions.board_position_id#');">
@@ -57,7 +57,7 @@
 	
 	<ul>
 		<li>
-			<a href="index.cfm?#getProperty('eventParameter')#=admin.showBoardMemberForm">
+			<a href="#BuildUrl('admin.showBoardMemberForm')#">
 				#getProperty("resourceBundleService").getResourceBundle().getResource("addnewboardmember")#
 			</a>
 		</li>

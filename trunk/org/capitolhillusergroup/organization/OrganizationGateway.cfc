@@ -24,7 +24,7 @@
 		<cftry>
 			<cfquery name="getOrganizations" datasource="#getDatasource().getDSN()#" 
 					username="#getDatasource().getUserName()#" password="#getDatasource().getPassword()#">
-				SELECT 	organization_id, organization 
+				SELECT 	organization_id, organization
 				FROM 	organization 
 				ORDER BY organization
 			</cfquery>

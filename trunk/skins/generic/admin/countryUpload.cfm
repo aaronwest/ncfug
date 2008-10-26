@@ -5,7 +5,7 @@
 		<p class="message">#event.getArg("message")#</p>
 	</cfif>
 	
-	<form id="countryUploadForm" class="standardForm" action="index.cfm?#getProperty('eventParameter')#=admin.processUploadCountriesForm" method="post" enctype="multipart/form-data">
+	<form id="countryUploadForm" class="standardForm" action="#BuildUrl('admin.processUploadCountriesForm')#" method="post" enctype="multipart/form-data">
 		
 		<fieldset>	
 			

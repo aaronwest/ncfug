@@ -1,7 +1,7 @@
 <cfoutput>
 	<h2>#action#</h2>
 	
-	<form id="roleForm" class="standardForm" action="index.cfm?#getProperty('eventParameter')#=admin.processRoleForm" method="post">
+	<form id="roleForm" class="standardForm" action="#BuildUrl('admin.processRoleForm')#" method="post">
 		
 		<fieldset>
 			

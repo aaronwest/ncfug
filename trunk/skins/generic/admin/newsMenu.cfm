@@ -2,7 +2,7 @@
 	<script type="text/javascript">
 		function deleteNews(newsID) {
 			if(confirm("#getProperty('resourceBundleService').getResourceBundle().getResource('confirmnewsdelete')#")) {
-				location.href = "index.cfm?#getProperty('eventParameter')#=admin.deleteNews&newsID=" + newsID;
+				location.href = "#BuildUrl('admin.deleteNews')#newsID/" + newsID;
 			}
 		}
 	</script>
@@ -15,7 +15,7 @@
 	
 	<ul>
 		<li>
-			<a href="index.cfm?#getProperty('eventParameter')#=admin.showNewsForm">
+			<a href="#BuildUrl('admin.showNewsForm')#">
 				#getProperty("resourceBundleService").getResourceBundle().getResource("addnewnewsitem")#
 			</a>
 		</li>
@@ -42,7 +42,7 @@
 							</cfif>
 						</td>
 						<td class="action">
-							<a href="index.cfm?#getProperty('eventParameter')#=admin.showNewsForm&amp;newsID=#news.news_id#">
+							<a href="#BuildUrl('admin.showNewsForm')#newsID/#news.news_id#">
 								#getProperty("resourceBundleService").getResourceBundle().getResource("edit")#
 							</a>
 							<a href="javascript:void(0);" onClick="javascript:deleteNews('#news.news_id#');">

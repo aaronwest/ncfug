@@ -2,7 +2,7 @@
 	<script type="text/javascript">
 		function deletePhotoAlbum(photoalbumID) {
 			if(confirm("#getProperty('resourceBundleService').getResourceBundle().getResource('confirmphotoalbumdelete')#")) {
-				location.href = "index.cfm?#getProperty('eventParameter')#=admin.deletePhotoAlbum&photoalbumID=" + photoalbumID;
+				location.href = "#BuildUrl('admin.deletePhotoAlbum')#photoalbumID/" + photoalbumID;
 			}
 		}
 	</script>
@@ -10,7 +10,7 @@
 	<h2>#getProperty("resourceBundleService").getResourceBundle().getResource("managephotoalbums")#</h2>
 	<ul>
 		<li>
-			<a href="index.cfm?#getProperty('eventParameter')#=admin.showPhotoAlbumForm">
+			<a href="#BuildUrl('admin.showPhotoAlbumForm')#">
 				#getProperty("resourceBundleService").getResourceBundle().getResource("addnewphotoalbum")#
 			</a>
 		</li>
@@ -35,11 +35,11 @@
 							<cfif photoalbums.is_active eq 1>
 								<img alt="Active" src="#getProperty('applicationRoot')#skins/#getProperty('skin')#/style/images/tick.png" />
 							<cfelse>
-								&nbsp;
+								<img alt="Inactive" src="#getProperty('applicationRoot')#skins/#getProperty('skin')#/style/images/tick_disabled.png" />
 							</cfif>
 						</td>
 						<td class="action">
-							<a href="index.cfm?#getProperty('eventParameter')#=admin.showPhotoAlbumForm&amp;photoAlbumID=#photoalbums.photo_album_id#">
+							<a href="#BuildUrl('admin.showPhotoAlbumForm')#photoAlbumID/#photoalbums.photo_album_id#">
 								#getProperty("resourceBundleService").getResourceBundle().getResource("edit")#
 							</a>
 							<a href="javascript:void(0);" onClick="javascript:deletePhotoAlbum('#photoalbums.photo_album_id#');">

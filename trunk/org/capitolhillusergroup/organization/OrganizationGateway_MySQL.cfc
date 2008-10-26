@@ -16,7 +16,7 @@
 		<cftry>
 			<cfquery name="getOrgs" datasource="#getDatasource().getDSN()#" 
 					username="#getDatasource().getUserName()#" password="#getDatasource().getPassword()#">
-				SELECT 	organization_id, organization 
+				SELECT 	organization_id, organization, is_active
 				FROM 	organization 
 			<cfif arguments.getActiveOnly>
 				WHERE 	is_active = <cfqueryparam value="1" cfsqltype="cf_sql_tinyint" /> 

@@ -5,7 +5,7 @@
 		<p class="message">#event.getArg("message")#</p>
 	</cfif>
 
-	<form id="photoalbumForm" class="standardForm" action="index.cfm?#getProperty('eventParameter')#=admin.processPhotoAlbumForm" method="post">
+	<form id="photoalbumForm" class="standardForm" action="#BuildUrl('admin.processPhotoAlbumForm')#" method="post">
 		
 		<fieldset>	
 

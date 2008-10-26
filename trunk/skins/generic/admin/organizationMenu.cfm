@@ -2,7 +2,7 @@
 	<script type="text/javascript">
 		function deleteOrganization(organizationID) {
 			if(confirm("#getProperty('resourceBundleService').getResourceBundle().getResource('confirmorganizationdelete')#")) {
-				location.href = "index.cfm?#getProperty('eventParameter')#=admin.deleteOrganization&organizationID=" + organizationID;
+				location.href = "#BuildUrl('admin.deleteOrganization')#organizationID/" + organizationID;
 			}
 		}
 	</script>
@@ -15,7 +15,7 @@
 	
 	<ul>
 		<li>
-			<a href="index.cfm?#getProperty('eventParameter')#=admin.showOrganizationForm">
+			<a href="#BuildUrl('admin.showOrganizationForm')#">
 				#getProperty("resourceBundleService").getResourceBundle().getResource("addneworganization")#
 			</a>
 		</li>
@@ -26,13 +26,21 @@
 			<tbody>
 				<tr>
 					<th>#getProperty("resourceBundleService").getResourceBundle().getResource("organization")#</h>
+					<th>#getProperty("resourceBundleService").getResourceBundle().getResource("active")#</th>
 					<th>#getProperty("resourceBundleService").getResourceBundle().getResource("action")#</th>
 				</tr>
 				<cfloop query="organizations">
 					<tr<cfif (organizations.currentRow MOD 2) EQ 0> class="odd"</cfif>>
-						<td>#organization#</td>
+						<td>#organizations.organization#</td>
+						<td class="active">
+							<cfif organizations.is_active eq 1>
+								<img alt="Active" src="#getProperty('applicationRoot')#skins/#getProperty('skin')#/style/images/tick.png" />
+							<cfelse>
+								<img alt="Inactive" src="#getProperty('applicationRoot')#skins/#getProperty('skin')#/style/images/tick_disabled.png" />
+							</cfif>
+						</td>
 						<td class="action">
-							<a href="index.cfm?#getProperty('eventParameter')#=admin.showOrganizationForm&amp;organizationID=#organizations.organization_id#">
+							<a href="#BuildUrl('admin.showOrganizationForm')#organizationID/#organizations.organization_id#">
 								#getProperty("resourceBundleService").getResourceBundle().getResource("edit")#
 							</a>
 							<a href="javascript:void(0);" onClick="javascript:deleteOrganization('#organizations.organization_id#');">

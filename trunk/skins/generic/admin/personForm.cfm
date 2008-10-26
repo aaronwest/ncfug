@@ -11,7 +11,7 @@
 		<p class="message">#event.getArg("message")#</p>
 	</cfif>
 
-	<form id="personForm" class="standardForm" action="index.cfm?#getProperty('eventParameter')#=#personFormAction#" method="post" enctype="multipart/form-data">
+	<form id="personForm" class="standardForm" action="#BuildUrl('admin.processPersonForm')#" method="post" enctype="multipart/form-data">
 		
 		<fieldset>
 
@@ -51,7 +51,7 @@
 					<input type="file" id="image" name="image" /><br />
 					<cfif person.getImage() IS NOT "">
 						<span class="detail">
-							<a href="javascript:void(0);" onclick="javascript:doImagePopup('#getProperty('personImageFilePath')##person.getImage()#')">
+							<a href="javascript:void(0);" onclick="javascript:doImagePopup('#getProperty('baseURL')##getProperty('personImageFilePath')##person.getImage()#')">
 								#getProperty("resourceBundleService").getResourceBundle().getResource("viewcurrentimage")#
 							</a>
 							<label for="deleteFile">

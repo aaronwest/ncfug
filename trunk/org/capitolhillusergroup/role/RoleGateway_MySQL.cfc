@@ -16,7 +16,7 @@
 		<cftry>
 			<cfquery name="getRoles" datasource="#getDatasource().getDSN()#" 
 					username="#getDatasource().getUserName()#" password="#getDatasource().getPassword()#">
-				SELECT role_id, role 
+				SELECT role_id, role, is_active
 				FROM role 
 				<cfif arguments.getActiveOnly>
 				WHERE is_active = <cfqueryparam value="1" cfsqltype="cf_sql_tinyint" /> 

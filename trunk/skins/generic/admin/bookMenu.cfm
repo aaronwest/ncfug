@@ -2,7 +2,7 @@
 	<script type="text/javascript">
 		function deleteBook(bookID) {
 			if(confirm("#getProperty('resourceBundleService').getResourceBundle().getResource('confirmbookdelete')#")) {
-				location.href = "index.cfm?#getProperty('eventParameter')#=admin.deleteBook&bookID=" + bookID;
+				location.href = "#BuildUrl('admin.deleteBook')#bookID/" + bookID;
 			}
 		}
 	</script>
@@ -15,12 +15,12 @@
 	
 	<ul>
 		<li>
-			<a href="index.cfm?#getProperty('eventParameter')#=admin.showBookForm">
+			<a href="#BuildUrl('admin.showBookForm')#">
 				#getProperty("resourceBundleService").getResourceBundle().getResource("addnewbook")#
 			</a>
 		</li>
 		<li>
-			<a href="index.cfm?#getProperty('eventParameter')#=admin.showCategoryMenu">
+			<a href="#BuildUrl('admin.showCategoryMenu')#">
 				#getProperty("resourceBundleService").getResourceBundle().getResource("managecategories")#
 			</a>
 		</li>
@@ -41,11 +41,11 @@
 							<cfif books.is_active eq 1>
 								<img alt="Active" src="#getProperty('applicationRoot')#skins/#getProperty('skin')#/style/images/tick.png" />
 							<cfelse>
-								&nbsp;
+								<img alt="Inactive" src="#getProperty('applicationRoot')#skins/#getProperty('skin')#/style/images/tick_disabled.png" />
 							</cfif>
 						</td>
 						<td class="action">
-							<a href="index.cfm?#getProperty('eventParameter')#=admin.showBookForm&amp;bookID=#books.book_id#">
+							<a href="#BuildUrl('admin.showBookForm')#bookID/#books.book_id#">
 								#getProperty("resourceBundleService").getResourceBundle().getResource("edit")#
 							</a>
 							<a href="javascript:void(0);" onClick="javascript:deleteBook('#books.book_id#');">

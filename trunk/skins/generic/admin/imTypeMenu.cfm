@@ -2,7 +2,7 @@
 	<script type="text/javascript">
 		function deleteIMType(imTypeID) {
 			if(confirm("#getProperty('resourceBundleService').getResourceBundle().getResource('confirmimtypedelete')#")) {
-				location.href = "index.cfm?#getProperty('eventParameter')#=admin.deleteIMType&imTypeID=" + imTypeID;
+				location.href = "#BuildUrl('admin.deleteIMType')#imTypeID/" + imTypeID;
 			}
 		}
 	</script>
@@ -15,7 +15,7 @@
 	
 	<ul>
 		<li>
-			<a href="index.cfm?#getProperty('eventParameter')#=admin.showIMTypeForm">
+			<a href="#BuildUrl('admin.showIMTypeForm')#">
 				#getProperty("resourceBundleService").getResourceBundle().getResource("addnewimtype")#
 			</a>
 		</li>
@@ -32,7 +32,7 @@
 					<tr<cfif (imTypes.currentRow mod 2) EQ 0> class="odd"</cfif>>
 						<td>#imTypes.im_type#</td>
 						<td class="action">
-							<a href="index.cfm?#getProperty('eventParameter')#=admin.showIMTypeForm&amp;imTypeID=#imTypes.im_type_id#">
+							<a href="#BuildUrl('admin.showIMTypeForm')#imTypeID/#imTypes.im_type_id#">
 								#getProperty("resourceBundleService").getResourceBundle().getResource("edit")#
 							</a>
 							<a href="javascript:void(0);" onClick="javascript:deleteIMType('#imTypes.im_type_id#')">

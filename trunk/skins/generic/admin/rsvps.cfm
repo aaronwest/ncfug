@@ -1,4 +1,11 @@
 <cfoutput>
+	<script type="text/javascript">
+		function deleteRSVP(rsvpID) {
+			if(confirm("#getProperty('resourceBundleService').getResourceBundle().getResource('confirmrsvpdelete')#")) {
+				location.href = "#BuildUrl('admin.deleteRSVP')#rsvpID/" + rsvpID;
+			}
+		}
+	</script>
 	<h2>#getProperty("resourceBundleService").getResourceBundle().getResource("meetingrsvps")#</h2>
 	
 	<h2>#getProperty("resourceBundleService").getLocaleUtils().i18nDateTimeFormat(meeting.getDTMeeting(), 3, 3)#</h2>
@@ -31,7 +38,7 @@
 							<a href="#BuildUrl('admin.showRSVPForm', 'rsvpID=#rsvps.rsvp_id#')#">
 								#getProperty("resourceBundleService").getResourceBundle().getResource("edit")#
 							</a>
-							<a href="#BuildUrl('admin.deleteRSVP', 'rsvpID=#rsvps.rsvp_id#')#">
+							<a href="javascript:deleteRSVP('#rsvps.rsvp_id#');">
 								#getProperty("resourceBundleService").getResourceBundle().getResource("delete")#
 							</a>
 						</td>

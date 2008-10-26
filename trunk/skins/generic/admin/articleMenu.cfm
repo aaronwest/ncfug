@@ -2,7 +2,7 @@
 	<script type="text/javascript">
 		function deleteArticle(articleID) {
 			if(confirm("#getProperty('resourceBundleService').getResourceBundle().getResource('confirmarticledelete')#")) {
-				location.href = "index.cfm?#getProperty('eventParameter')#=admin.deleteArticle&articleID=" + articleID;
+				location.href = "#BuildUrl('admin.deleteArticle')#articleID/" + articleID;
 			}
 		}
 	</script>
@@ -15,12 +15,12 @@
 	
 	<ul>
 		<li>
-			<a href="index.cfm?#getProperty('eventParameter')#=admin.showArticleForm">
+			<a href="#BuildUrl('admin.showArticleForm')#">
 				#getProperty("resourceBundleService").getResourceBundle().getResource("addnewarticle")#
 			</a>
 		</li>
 		<li>
-			<a href="index.cfm?#getProperty('eventParameter')#=admin.showCategoryMenu">
+			<a href="#BuildUrl('admin.showCategoryMenu')#">
 				#getProperty("resourceBundleService").getResourceBundle().getResource("managecategories")#
 			</a>
 		</li>
@@ -47,7 +47,7 @@
 							</cfif>
 						</td>
 						<td class="action">
-							<a href="index.cfm?#getProperty('eventParameter')#=admin.showArticleForm&amp;articleID=#articles.article_id#">
+							<a href="#BuildUrl('admin.showArticleForm')#articleID/#articles.article_id#">
 								#getProperty("resourceBundleService").getResourceBundle().getResource("edit")#
 							</a>
 							<a href="javascript:void(0);" onClick="javascript:deleteArticle('#articles.article_id#');">

@@ -2,7 +2,7 @@
 	<script type="text/javascript">
 		function deleteLocation(locationID) {
 			if(confirm("#getProperty('resourceBundleService').getResourceBundle().getResource('confirmlocationdelete')#")) {
-				location.href = "index.cfm?#getProperty('eventParameter')#=admin.deleteLocation&locationID=" + locationID;
+				location.href = "#BuildUrl('admin.deleteLocation')#locationID/" + locationID;
 			}
 		}
 	</script>
@@ -10,17 +10,17 @@
 	<h2>#getProperty("resourceBundleService").getResourceBundle().getResource("managelocations")#</h2>
 	<ul>
 		<li>
-			<a href="index.cfm?#getProperty('eventParameter')#=admin.showLocationForm">
+			<a href="#BuildUrl('admin.showLocationForm')#">
 				#getProperty("resourceBundleService").getResourceBundle().getResource("addnewlocation")#
 			</a>
 		</li>
 		<li>
-			<a href="index.cfm?#getProperty('eventParameter')#=admin.showUploadCountriesForm">
+			<a href="#BuildUrl('admin.showUploadCountriesForm')#">
 				#getProperty("resourceBundleService").getResourceBundle().getResource("uploadcountries")#
 			</a>
 		</li>
 		<li>
-			<a href="index.cfm?#getProperty('eventParameter')#=admin.showUploadStatesForm">
+			<a href="#BuildUrl('admin.showUploadStatesForm')#">
 				#getProperty("resourceBundleService").getResourceBundle().getResource("uploadstates")#
 			</a>
 		</li>
@@ -55,7 +55,7 @@
 							</cfif>
 						</td>
 						<td class="action">
-							<a href="index.cfm?#getProperty('eventParameter')#=admin.showLocationForm&amp;locationID=#locations.location_id#">
+							<a href="#BuildUrl('admin.showLocationForm')#locationID/#locations.location_id#">
 								#getProperty("resourceBundleService").getResourceBundle().getResource("edit")#
 							</a>
 							<a href="javascript:void(0);" onClick="javascript:deleteLocation('#locations.location_id#');">

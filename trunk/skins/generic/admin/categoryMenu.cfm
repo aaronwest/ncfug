@@ -2,7 +2,7 @@
 	<script type="text/javascript">
 		function deleteCategory(categoryID) {
 			if(confirm("#getProperty('resourceBundleService').getResourceBundle().getResource('confirmcategorydelete')#")) {
-				location.href = "index.cfm?#getProperty('eventParameter')#=admin.deleteCategory&categoryID=" + categoryID;
+				location.href = "#BuildUrl('admin.deleteCategory')#categoryID/" + categoryID;
 			}
 		}
 	</script>
@@ -10,7 +10,7 @@
 	<h2>#getProperty("resourceBundleService").getResourceBundle().getResource("managecategories")#</h2>
 	<ul>
 		<li>
-			<a href="index.cfm?#getProperty('eventParameter')#=admin.showCategoryForm">
+			<a href="#BuildUrl('admin.showCategoryForm')#">
 				#getProperty("resourceBundleService").getResourceBundle().getResource("addnewcategory")#
 			</a>
 		</li>
@@ -39,7 +39,7 @@
 							</cfif>
 						</td>
 						<td class="action">
-							<a href="index.cfm?#getProperty('eventParameter')#=admin.showCategoryForm&amp;categoryID=#categories.category_id#">
+							<a href="#BuildUrl('admin.showCategoryForm')#categoryID/#categories.category_id#">
 								#getProperty("resourceBundleService").getResourceBundle().getResource("edit")#
 							</a>
 							<a href="javascript:void(0);" onClick="javascript:deleteCategory('#categories.category_id#');">
