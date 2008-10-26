@@ -15,6 +15,8 @@
 		<property name="dbType" value="MySQL" />
 		<property name="dbUserName" value="ncfug" />
 		<property name="dbPassword" value="8KrJM9qE" />
+		<!--- <property name="dbUserName" value="root" />
+		<property name="dbPassword" value="" /> --->
 		<property name="dbVersion" value="0.1" />
 		
 		<property name="devMode" value="false" />
@@ -794,13 +796,10 @@
 		<event-handler event="admin.processPersonForm" access="public">
 			<event-mapping event="success" mapping="admin.showPeopleMenu_redirect" />
 			<event-mapping event="failure" mapping="admin.showPersonForm_error" />
-			<event-bean name="person" type="org.capitolhillusergroup.person.Person" 
-					fields="personID,firstName,lastName,title,email,url,password,phone,isAdmin,bio" />
-			<event-bean name="organization" type="org.capitolhillusergroup.organization.Organization" 
-					fields="organizationID" />
+			<event-bean name="person" type="org.capitolhillusergroup.person.Person" fields="personID,firstName,lastName,title,email,url,password,phone,isAdmin,bio" />
+			<event-bean name="organization" type="org.capitolhillusergroup.organization.Organization" fields="organizationID" />
 			<event-bean name="role" type="org.capitolhillusergroup.role.Role" fields="roleID" />
-			<event-bean name="address" type="org.capitolhillusergroup.address.Address" 
-					fields="addressID,address1,address2,city,stateID,postalCode,countryID" />
+			<event-bean name="address" type="org.capitolhillusergroup.address.Address" fields="addressID,address1,address2,city,stateID,postalCode,countryID" />
 			<notify listener="personListener" method="processPersonForm" />
 		</event-handler>
 		
@@ -842,15 +841,13 @@
 		<event-handler event="admin.processPhotoForm" access="public">
 			<event-mapping event="success" mapping="admin.showPhotoMenu_redirect" />
 			<event-mapping event="failure" mapping="admin.showPhotoForm_error" />
-			<event-bean name="photo" type="org.capitolhillusergroup.photo.Photo" 
-				fields="photoID,title,caption" />
+			<event-bean name="photo" type="org.capitolhillusergroup.photo.Photo" fields="photoID,title,caption" />
 			<notify listener="photoListener" method="processPhotoForm" />
 		</event-handler>
 		<event-handler event="admin.deletePhoto" access="public">
 			<event-mapping event="success" mapping="admin.showPhotoMenu_redirect" />
 			<event-mapping event="failure" mapping="admin.showPhotoMenu" />
-			<event-bean name="photo" type="org.capitolhillusergroup.photo.Photo" 
-				fields="photoID" />
+			<event-bean name="photo" type="org.capitolhillusergroup.photo.Photo" fields="photoID" />
 			<notify listener="photoListener" method="deletePhoto" />
 		</event-handler>
 		
@@ -879,13 +876,14 @@
 		<event-handler event="admin.processPhotoAlbumForm" access="public">
 			<event-mapping event="success" mapping="admin.showPhotoAlbumMenu_redirect" />
 			<event-mapping event="failure" mapping="admin.showPhotoAlbumForm_error" />
-			<event-bean name="photoalbum" type="org.capitolhillusergroup.photoalbum.PhotoAlbum" 
-					fields="photoalbumID,title,description" />
+			<event-bean name="photoalbum" type="org.capitolhillusergroup.photoalbum.PhotoAlbum" fields="photoAlbumID,title,description" />
 			<notify listener="photoAlbumListener" method="processPhotoAlbumForm" />
 		</event-handler>
+		
 		<event-handler event="admin.deletePhotoAlbum" access="public">
 			<event-mapping event="success" mapping="admin.showPhotoAlbumMenu_redirect" />
 			<event-mapping event="failure" mapping="admin.showPhotoAlbumMenu" />
+			<event-bean name="photoalbum" type="org.capitolhillusergroup.photoalbum.PhotoAlbum" fields="photoAlbumID,title,description" />
 			<notify listener="photoAlbumListener" method="deletePhotoAlbum" />
 		</event-handler>
 		
@@ -916,8 +914,7 @@
 		<event-handler event="admin.processPresentationForm" access="public">
 			<event-mapping event="success" mapping="admin.showPresentationMenu_redirect" />
 			<event-mapping event="failure" mapping="admin.showPresentationForm_error" />
-			<event-bean name="presentation" type="org.capitolhillusergroup.presentation.Presentation" 
-					fields="presentationID,title,summary,presentationFileTitle,presentationFileDescription" />
+			<event-bean name="presentation" type="org.capitolhillusergroup.presentation.Presentation" fields="presentationID,title,summary,presentationFileTitle,presentationFileDescription" />
 			<notify listener="presentationListener" method="processPresentationForm" />
 		</event-handler>
 		
@@ -952,8 +949,7 @@
 		<event-handler event="admin.processRoleForm" access="public">
 			<event-mapping event="success" mapping="admin.showRoleMenu_redirect" />
 			<event-mapping event="failure" mapping="admin.showRoleForm_error" />
-			<event-bean name="role" type="org.capitolhillusergroup.role.Role" 
-					fields="roleID,role,description" />
+			<event-bean name="role" type="org.capitolhillusergroup.role.Role" fields="roleID,role,description" />
 			<notify listener="roleListener" method="processRoleForm" />
 		</event-handler>
 		
