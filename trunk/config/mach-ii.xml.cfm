@@ -15,8 +15,8 @@
 		<property name="dbType" value="MySQL" />
 		<property name="dbUserName" value="ncfug" />
 		<property name="dbPassword" value="8KrJM9qE" />
-		<!--- <property name="dbUserName" value="root" />
-		<property name="dbPassword" value="" /> --->
+		<!-- <property name="dbUserName" value="root" />
+		<property name="dbPassword" value="" /> -->
 		<property name="dbVersion" value="0.1" />
 		
 		<property name="devMode" value="false" />
