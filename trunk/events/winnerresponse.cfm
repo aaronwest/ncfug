@@ -1,4 +1,4 @@
-<cfset variables.excludelist = "jay@cyber-jay.com,a.west@me.com,sgordon@vaco.com">
+<cfset variables.excludelist = "tonybradshaw@comcast.net,jon.gallion@daveramsey.com,philharveyx@gmail.com,louis@oreillyinternational.com,jons@daveramsey.com,matthew@615flex.com,a.west@me.com">
 
 
 <cfquery name="qryRegistrants" datasource="ncfug">
