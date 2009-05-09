@@ -236,13 +236,13 @@
 		<br />			
 
 		<!-- Sponsors -->
-		<a href="http://www.producealliance.com/" target="_blank"><img src="#getProperty('applicationRoot')#skins/#getProperty('skin')#/images/sponsors/producealliance.gif" /></a> 
-		<br />
-		<br />
-
-		<!--- <a href="http://www.dealerskins.com/" target="_blank"><img src="#getProperty('applicationRoot')#skins/#getProperty('skin')#/images/sponsors/dealerskins.gif" /></a> 
+		<!--- <a href="http://www.producealliance.com/" target="_blank"><img src="#getProperty('applicationRoot')#skins/#getProperty('skin')#/images/sponsors/producealliance.gif" /></a> 
 		<br />
 		<br /> --->
+
+		<a href="http://www.dealerskins.com/" target="_blank"><img src="#getProperty('applicationRoot')#skins/#getProperty('skin')#/images/sponsors/dealerskins.gif" /></a> 
+		<br />
+		<br />
 		
 		<!--- <a href="http://www.vaco.com/" target="_blank"><img src="#getProperty('applicationRoot')#skins/#getProperty('skin')#/images/sponsors/vacotechnology.gif" /></a> 
 		<br />
