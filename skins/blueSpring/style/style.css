@@ -1,0 +1,631 @@
+/* global */
+html{height: 100%;}
+
+body
+{ font-family: verdana, arial, sans-serif;
+  padding: 0px;
+  margin: 0px;
+  font-size: .68em;
+}
+
+p
+{ margin: 0px;
+  padding: 0px 0px 16px 0px;
+  line-height: 1.7em;
+}
+
+h1
+{ font-family: arial, sans-serif;
+  letter-spacing: .1em;
+}
+
+h2
+{ margin: 0px;
+  padding: 0px 0px 4px 0px;
+  font-size: 100%;
+}
+
+img{border: 0px;}
+
+a{outline: none;}
+
+/* image positioning - left, right and center */
+.left
+{ float: left; 
+  padding: 0px 8px 0px 0px;
+}
+
+.right
+{ float: right; 
+  padding: 0px 0px 0px 8px;
+}
+
+.center
+{ display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* block quote */
+blockquote
+{ margin: 20px 0px 20px 0px; 
+  padding: 10px 20px 0px 20px;
+  border-left: 8px solid;
+}
+
+/* unordered list */
+ul
+{ margin: 8px 0px 0px 16px;
+  padding: 0px;
+}
+
+ul li
+{ list-style-type: square;
+  margin: 0px 0px 11px 0px; 
+  padding: 0px;
+}
+
+/* ordered list */
+ol
+{ margin: 8px 0px 0px 24px;
+  padding: 0px;
+}
+
+ol li
+{ margin: 0px 0px 11px 0px; 
+  padding: 0px;
+}
+
+/* main container */
+#main
+{ width: 780px;
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+/* links above the logo / footer */
+#links, #footer
+{ margin-left: auto; 
+  margin-right: auto;
+  padding: 10px 21px 0px 19px;
+  width: 720px;
+  height: 26px;
+  font-size: 94%;
+  text-transform: uppercase;
+}
+
+#links{text-align: right;}
+
+#footer{text-align: center;}
+
+#links a, #footer a{text-decoration: none;}
+
+#links a:hover, #footer a:hover{text-decoration: underline;}
+
+/* logo */
+#logo
+{ margin-left: auto; 
+  margin-right: auto;
+  width: 760px;
+  height: 100px;
+  text-align: left;
+}
+
+#logo h1
+{ margin: 0px;
+  padding: 41px 0px 0px 19px;
+  font-size: 150%;
+  letter-spacing: .2em;
+}
+
+/* navigation menu */
+#menu
+{ height: 42px;
+  width: 760px;
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+#menu ul{margin: 0px auto;} 
+
+#menu li
+{ float: left; 
+  margin: 0px; 
+  padding: 0px;
+} 
+
+#menu li a 
+{ display: block; 
+  float: left; 
+  height: 37px;
+  text-decoration: none; 
+  padding: 3px 19px 2px 19px;
+  text-transform: uppercase;
+} 
+
+/* main content */
+div#content
+{ margin-left: auto; 
+  margin-right: auto;
+  width: 760px;
+  height: auto;
+  padding: 0px;
+  overflow: hidden;
+} 
+
+/* column 1 - contains sidebar items */
+#column1
+{ width: 207px;
+  float: right;
+  padding: 16px 0px 15px 0px;
+}
+
+.sidebaritem
+{ text-align: left;
+  width: 188px;
+  float: left;
+  margin: 0px 0px 25px 0px;
+}
+
+.sbihead
+{ height: 14px;
+  width: 188px;
+  padding: 5px 0px 5px 19px;
+  text-transform: uppercase;
+}
+
+.sbihead h1
+{ padding: 0px; 
+  margin: 0px; 
+  font-weight: bold;
+  font-size: 112%;
+}
+
+.sbicontent{padding: 14px 8px 8px 19px;}
+
+.sbicontent p
+{ line-height: 14px; 
+  padding: 0px 0px 8px 0px;
+}
+
+.sbilinks{padding: 0px;}
+
+.sbilinks ul{margin: 0px auto;} 
+
+.sbilinks li 
+{ margin: 0px; 
+  float: left; 
+  list-style: none; 
+} 
+
+.sbilinks li a , .sbilinks li a:hover
+{ float: left; 
+  height: 16px;
+  text-decoration: none; 
+  padding: 5px 0px 4px 19px;
+  width: 188px;
+  border: 0px;
+} 
+
+/* column 2 - page content */
+#column2
+{ text-align: justify;
+  width: 512px;
+  float: left;
+  padding: 12px 3px 15px 19px;
+}
+
+#column2 h1
+{ padding: 6px 0px 4px 0px; 
+  margin: 0px 0px 12px 0px; 
+  border-bottom: 1px solid;
+  font-size: 150%;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.sidebaritem a, #column2 a, .sidebaritem a:hover, #column2 a:hover
+{
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.sidebaritem a:hover, #column2 a:hover{border-bottom: 1px solid;}
+
+/* contact page - form layout */
+form{margin-top: 0px;}
+
+div.row
+{ clear: both;
+  width: 448px;
+}
+
+div.row span.formlabel 
+{ float: left;
+  width: 150px;
+  text-align: left;
+}
+
+div.row span.forminput
+{ float: right;
+  text-align: right;
+} 
+
+div.spacer
+{ clear: both;
+  width: 80px;
+}
+
+/*input, textarea
+{ width: 259px; 
+  font-family: verdana, arial, sans-serif;
+  border: 1px solid;
+  font-size: 100%;
+  margin: 2px;
+}
+*/
+/*
+.submit
+{ font-family: verdana, arial, sans-serif;
+  border: 1px solid;
+  width: 70px;
+  height: 22px;
+  cursor: pointer;
+  font-size: 100%;
+}
+*/
+
+/* SKINS FOR GENERIC FILES */
+/* FORM */
+	.clearer
+	{
+		clear: both;
+		display: block;
+		height: 1px;
+		margin-bottom: -1px;
+		font-size: 1px;
+		line-height: 1px;
+	}
+
+	form 
+	{
+		margin: 0 0 1.5em;
+	}
+	
+	input 
+	{
+		font-family: arial,tahoma,verdana,sans-serif;
+		margin: 2px 0;
+	}
+	
+	select
+	{
+		font-family: arial,tahoma,verdana,sans-serif;
+	}
+	
+	fieldset 
+	{
+		border: none;
+	}
+	
+	label 
+	{
+		display: block;
+		padding: 5px 0;
+	}
+	
+	label br 
+	{
+		clear: left;
+	}
+	
+	input.submit 
+	{
+		padding: 0 12px;
+		font-weight: bold;
+		font-size: 92%;
+	}
+	
+	form.standardForm 
+	{
+		width: 100%;
+		padding: 0.5em 0;
+		background: none;
+		position: relative;
+	}
+		
+	form.standardForm fieldset 
+	{
+		width: auto;
+		margin: 0 0em;
+	}
+	
+	form.standardForm fieldset legend
+	{
+		border: none;
+		font-size: 116%;
+		padding: 1em 0 0.2em 0;
+		font-weight: bold;
+	}
+
+	form.standardForm h3 
+	{
+		border: none;
+	}
+
+	form.standardForm label 
+	{
+		clear: left;
+		float: left;
+		width: 100%;
+		border-top: none;
+	}
+	
+	form.standardForm span.notice
+	{
+		padding: 10px 0;
+		margin: 0 10px 0 30px;
+		color:#444444;
+		font-weight:bold;
+		display:block;
+		width:auto;
+		float:none;
+		line-height:1.3;
+	}
+	
+	/* hide from IE mac \*/
+	form.standardForm label 
+	{
+		float:none;
+	}
+	/* end hiding from IE5 mac */
+	
+	form.standardForm label img.button
+	{
+		cursor: pointer;
+	}
+	
+	form.standardForm label input, form.standardForm label textarea
+	{
+		float: left;
+		width: 350px;
+		margin-left: 10px;
+	}
+	
+	form.standardForm label select, form.standardForm .input
+	{
+		float:left;
+		width: 350px;
+		margin-left: 10px;
+	}
+	
+	form.standardForm#rsvpForm label input, form.standardForm#rsvpForm label textarea
+	{
+		width: 350px;
+	}
+	
+	form.standardForm#contactForm label input, form.standardForm#contactForm label textarea
+	{
+		width: 350px;
+	}
+	
+	form.standardForm#forgotpasswordForm label input, form.standardForm#forgotpasswordForm label textarea
+	{
+		width: 350px;
+	}
+	
+	form.standardForm .input
+	{
+		width: 350px;
+		margin-bottom: 8px;
+	}
+	
+	form.standardForm label span.label
+	{
+		float: left;
+		width: 10em;
+		line-height: 1.7;
+		display: block;
+		position: relative;
+		text-align: right;
+	}
+	
+	form.standardForm label span.label span.required 
+	{
+		color: #CC0000;
+		font-weight: bold;
+		position: relative;
+		margin: 0 0.3em;
+		line-height: 0.1;
+	}
+	
+	form.standardForm label span.detail
+	{
+		margin: 0 0 0.2em 11.8em;
+		width: 25em;
+		font-size: 92%;
+		display: block;
+	}
+
+	form.standardForm div.submit-wrap 
+	{
+		padding: 5px 0 5px 10em;
+	}
+	
+	form.standardForm input.submit 
+	{
+		margin: 0 0 0 10px;
+	}
+	
+	form.standardForm fieldset.checkbox-wrap, form.standardForm fieldset.radio-wrap 
+	{
+		clear:left;
+		float:left;
+		width:32em;
+		border:none;
+		margin:0;
+		padding-bottom:0.7em;
+	}
+	
+	form.standardForm fieldset.checkbox-wrap span.label, form.standardForm fieldset.radio-wrap span.label 
+	{
+		float:left;
+		width:10em;
+		line-height: 1.7;
+		display:block;
+		position:relative;
+		padding-top:0.3em;
+	}
+		
+	form.standardForm fieldset.checkbox-wrap fieldset, form.standardForm fieldset.radio-wrap fieldset 
+	{
+		float:left;
+		width:13em;
+		margin: 3px 0 0 10px;
+	}
+	
+	form.standardForm fieldset.checkbox-wrap label, form.standardForm fieldset.radio-wrap label 
+	{
+		float:left;
+		width:13em;
+		border:none;
+		margin:0;
+		padding:2px 0;
+		margin-right:-3px
+	}
+	
+	form.standardForm label input.checkbox.right
+	{
+		width: auto;
+		float: none;
+		margin: 0 0 0 0.75em;
+		padding: 0;
+	}
+
+	form.standardForm label input.checkbox, form.standardForm label input.radio 
+	{
+		width: auto;
+		float: none;
+		margin: 0;
+		padding: 0;
+	}
+	
+	/* TABLE */
+	table.standardTable
+	{
+		border-collapse: collapse;
+		color: #555555;
+		width: 100%;
+	}
+
+	table.standardTable tbody th 
+	{
+		text-align: center;
+		background: #F5F5F5 url("images/thback.png") no-repeat 0 100%;
+		color: #444444;
+		padding: 4px;
+		font-size: 85%;
+		font-weight: bold;
+		border: 1px solid #E2E2E2;
+		text-transform:uppercase;
+	}
+	
+	table.standardTable tbody th.sub 
+	{
+		text-align: left;
+		background: none;
+		color: #444444;
+		padding: 4px;
+		font-size: 110%;
+		font-weight: bold;
+		border: none;
+		text-transform: none;
+	}
+	
+	table.standardTable tbody tr		
+	{
+		background-color:#FFFFFF; 
+		text-align:left;
+	}
+	
+	table.standardTable tbody tr.odd 	
+	{
+		background: #f9f9f9;
+		border: 1px solid #E7E7E7;
+		border-top: 1px solid #FFFFFF
+	}
+	
+	table.standardTable tbody tr td 
+	{ 
+		background: #FFFFFF;
+		padding: 4px;
+		border: 1px solid #E7E7E7;
+		min-height: 2.0em;
+	}
+	
+	table.standardTable tbody tr td.label 
+	{ 
+		float: right;
+		padding: 0.4em 0.8em 0 0;
+	}
+	
+	table.standardTable tbody tr td.datetime
+	{ 
+		text-align: center;
+		width: 115px;
+	}
+	
+	table.standardTable tbody tr td.active 
+	{ 
+		text-align: center;
+		padding: 0.4em 0 0 0;
+		width: 50px;
+	}
+	
+	table.standardTable tbody tr td.inactive 
+	{ 
+		text-decoration: line-through;
+	}
+	
+	table.standardTable tbody tr td.action 
+	{ 
+		text-align: center;
+		width: 80px;
+	}
+	
+	table.standardTable tbody tr td.action.extended
+	{ 
+		text-align: center;
+		width: 155px;
+	}
+	
+	table.standardTable tbody tr td.action a
+	{ 
+		margin: 0 0.2em 0 0.2em;
+		padding: 0;
+		font-size: 87%;
+	}
+	
+	table.standardTable tbody tr td.label span.required
+	{ 
+		color: #FF0000;
+		font-weight: bold;
+	}
+	
+	table.standardTable tbody tr td.sub 
+	{ 
+		font-weight: bold;
+	}
+	
+	table.standardTable tbody tr.odd td
+	{ 
+		background: #f9f9f9;
+		border: 1px solid #E7E7E7;
+		border-top: 1px solid #FFFFFF;
+	}
+	
+	form table, form table td, form table tr 
+	{
+		border: none;
+		background: none;
+	}

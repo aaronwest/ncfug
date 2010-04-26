@@ -1,0 +1,473 @@
+/*  
+Theme Name: Stylized
+Theme URI: http://www.freewpthemes.net/
+Description: A two-column, fixed with theme ideal for 1024x768 resolutions.
+Version: 1.0
+Author: NodeThirtyThree + Free WordPress Themes
+Author URI: http://www.nodethirtythree.com + http://www.freewpthemes.net/
+
+*/
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: #FFFFFF url(images/img01.gif) repeat-x;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #4A5157;
+}
+
+h1, h2, h3 {
+}
+
+h1 {
+	text-transform: capitalize;
+	letter-spacing: 0px;
+	font-size: 30px;
+	color: #292929;
+}
+
+h2 {
+	text-transform: lowercase;
+	font-size: 24px;
+	color: #292929;
+}
+
+h3 {
+}
+
+p, ul, ol {
+	margin-bottom: 2em;
+	text-align: justify;
+	line-height: 200%;
+}
+
+p {
+}
+
+ul, ol {
+	list-style: none;
+}
+
+ul {
+}
+
+ol {
+}
+
+a {
+	color: #FF0000;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+img {
+	border: none;
+}
+
+img.left {
+}
+
+img.right {
+}
+
+.tn img {
+	border: 8px solid #F5F5F5;
+}
+
+hr {
+	display: none;
+}
+
+/* Logo */
+
+#logo {
+	width: 919px;
+	height: 147px;
+	margin: 0 auto;
+}
+
+#logo h1 {
+	float: left;
+	padding: 20px 37px 0 0;
+	height: 54px;
+	/*background: url(images/img02.gif) no-repeat 100% 63px;*/
+	font-size: 38px;
+	font-weight: normal;
+	letter-spacing: 0px;
+}
+
+#logo #rightheader #welcomearea h2 {
+	float: right;
+	padding: 20px 0 0 0;
+	text-transform: lowercase;
+	font-weight: normal;
+	font-size: 16px;
+	color: #FFFFFF;
+}
+
+#logo a {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+#adobelogo {
+	float: right;
+	clear: right;
+	width: 228px;
+	height: 79px;
+	margin: 8px auto;
+}
+
+#adobelogo img {
+	padding: 2px;
+	width: 224px;
+	height: 79px;
+	background-color: white;
+}
+
+/* Menu */
+
+#menu {
+	width: 919px;
+	height: 50px;
+	margin: 0 auto;
+}
+
+#menu ul {
+	margin: 0;
+	padding: 10px 0 0 0;
+	list-style: none;
+	line-height: normal;
+}
+
+#menu li {
+	display: inline;
+}
+
+#menu a {
+	display: block;
+	float: left;
+	height: 25px;
+	margin: 0 10px;
+	padding: 5px 20px 0 20px;
+	text-transform: lowercase;
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+
+#menu a:hover {
+	text-decoration: underline;
+}
+
+#menu .current_page_item a {
+	background: #EC0000 url(images/img03.gif) repeat-x left bottom;
+}
+
+/* Page */
+
+#bg {
+	background: url(images/img04.gif) no-repeat center top;
+}
+
+#page {
+	width: 918px;
+	margin: 0 auto;
+}
+
+/* Content */
+
+#content {
+	float: left;
+	width: 625px;
+	padding: 10px 0 0 24px;
+}
+
+.post h1.title {
+	margin: 45px 0 20px 0;
+	padding-left: 33px;
+	background: url(images/img07.gif) no-repeat left center;
+}
+
+.post h2.title {
+	margin: 40px 0 25px 0;
+	padding-left: 33px;
+	background: url(images/img07.gif) no-repeat left center;
+}
+
+.post .title a {
+	text-decoration: none;
+	color: #292929;
+}
+
+.post .entry {
+	padding-left: 32px;
+}
+
+.post ul, .post ol {
+	margin-left: 3em;
+}
+
+.post ul {
+	list-style-type: square;
+}
+
+.post ol {
+	list-style-type: decimal;
+}
+
+.post .meta {
+	padding: 15px 32px;
+	background: url(images/img06.gif) repeat-x -40px -40px;
+}
+
+.post .meta p {
+	margin: 0;
+	line-height: normal;
+}
+
+.navigation {
+	padding-top: 50px;
+}
+
+.alignleft {
+	float: left;
+}
+
+.alignright {
+	float: right;
+}
+
+/* Comments */
+
+#comments {
+}
+
+#comments ol, #comments p {
+	margin: 0;
+	line-height: normal;
+}
+
+#comments ol li {
+	padding: 10px 0;
+	border-bottom: 1px dotted #3E3E3E;
+}
+
+#comments ol {
+	margin-left: 32px;
+}
+
+#comments p {
+	padding-top: 10px;
+}
+
+/* Respond */
+
+#respond {
+}
+
+#respond p {
+	margin-bottom: 5px;
+}
+
+#comment {
+	width: 400px;
+}
+
+/* Calendar */
+
+#calendar {
+}
+
+#calendar_wrap {
+	padding: 20px;
+	background: url(images/img06.gif) repeat-x;
+}
+
+#calendar table {
+	width: 100%;
+	text-align: center;
+}
+
+#prev {
+	text-align: left;
+}
+
+#next {
+	text-align: right;
+}
+
+#calendar a {
+	font-weight: bold;
+}
+
+/* Sidebar */
+
+#sidebar {
+	float: right;
+	width: 214px;
+	padding: 10px 1px 0 0;
+}
+
+#sidebar ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-align: left;
+}
+
+#sidebar li {
+}
+
+#sidebar li ul {
+	padding: 15px;
+	background: url(images/img06.gif) repeat-x;
+}
+
+#sidebar li h2 {
+	height: 28px;
+	margin: 0;
+	padding: 5px 0 0 34px;
+	background: #C80000 url(images/img05.gif) no-repeat;
+	text-transform: lowercase;
+	font-size: 17px;
+	color: #FFFFFF;
+}
+
+#sidebar li ul li {
+	background: url(images/img07.gif) no-repeat left center;
+	padding-left: 35px;
+}
+	
+#sidebar a {
+	color: #4A5157;
+}
+
+/* Search */
+
+#search {
+}
+
+#search form {
+	padding: 26px 26px 50px 26px;
+	background: url(images/img06.gif) repeat-x;
+}
+
+#search input {
+	float: right;
+}
+
+#search #s {
+	width: 160px;
+}
+
+/* Footer */
+
+#footer {
+	padding: 25px 0;
+	background: url(images/img08.gif) no-repeat center top;
+	font-size: 12px;
+}
+
+#footer p {
+	margin: 0;
+	text-align: center;
+	line-height: normal;
+}
+
+table {
+	margin: 10px 15px; 
+	border-collapse: collapse;
+}
+th strong {
+	color: #fff;
+}
+th {
+	background: #EC0000;
+	height: 3em;
+	padding-left: 12px;
+	padding-right: 12px;
+	color: #FFF;
+	text-align: left;
+	border: 1px solid #272727;
+}
+tr {
+	color: #707070;
+	height: 2.5em;
+}
+td {
+	padding-left: 12px;
+	padding-right: 12px;
+	/*border-left: 1px solid #FFF;
+	border-bottom: solid 1px #ffffff;*/
+	border: 1px solid #272727;
+}
+td.first,th.first {
+	border-left: 0px;
+}
+tr.row-a {
+	background: #EEEEEE;
+}
+tr.row-b {
+	background: #EFEFEF;
+}
+
+/* form elements */
+form {
+	margin: 10px 15px;
+	padding: 10px;
+	border: 1px solid #C00;
+}
+fieldset {
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+label {
+	display:block;
+	font-weight:bold;
+	margin: .4em 0;
+	color: black;
+	min-width: 150px;
+}
+label span.label {
+	display:block;
+	font-weight:bold;
+	margin: .4em 0;
+	color: black;
+	min-width: 150px;
+}
+
+input {
+	padding: .3em;
+	border: 1px solid #C00;
+	background-color: #EEEEEE;
+	font: normal 1em Verdana, sans-serif;
+	color: black;
+}
+textarea {
+	width: 55%;
+	padding: .3em;
+	font: normal 1em/1.5em Verdana, sans-serif;
+	/*border: 1px solid #eee;*/
+	border: 1px solid #C00;
+	background-color: #EEEEEE;
+	height: 10em;
+	display:block;
+	color: black;
+}
+input.button {
+	font: bold 1em Arial, Sans-serif; 
+	margin: 0;
+	padding: .25em .3em;
+	color: #FFF;
+	background: #C00;
+	border: 2px solid #8EB200;
+}
