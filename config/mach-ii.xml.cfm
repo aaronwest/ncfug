@@ -13,8 +13,8 @@
 		<!-- application specific -->
 		<property name="dsn" value="ncfug" />
 		<property name="dbType" value="MySQL" />
-		<property name="dbUserName" value="ncfug" />
-		<property name="dbPassword" value="8KrJM9qE" />
+		<property name="dbUserName" value="root" />
+		<property name="dbPassword" value="password" />
 		<!-- <property name="dbUserName" value="root" />
 		<property name="dbPassword" value="" /> -->
 		<property name="dbVersion" value="0.1" />
