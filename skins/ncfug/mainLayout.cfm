@@ -240,9 +240,9 @@
 		<br />
 		<br /> --->
 
-		<a href="http://www.dealerskins.com/" target="_blank"><img src="#getProperty('applicationRoot')#skins/#getProperty('skin')#/images/sponsors/dealerskins.gif" /></a> 
+		<!--- <a href="http://www.dealerskins.com/" target="_blank"><img src="#getProperty('applicationRoot')#skins/#getProperty('skin')#/images/sponsors/dealerskins.gif" /></a> 
 		<br />
-		<br />
+		<br /> --->
 		
 		<!--- <a href="http://www.vaco.com/" target="_blank"><img src="#getProperty('applicationRoot')#skins/#getProperty('skin')#/images/sponsors/vacotechnology.gif" /></a> 
 		<br />
@@ -277,11 +277,11 @@
 			<!-- bottom center information -->
 			<div class="bottomcolumn">
 				<h3>Blog Roll</h3>
-				<p>Here is a list of some of our satisfied customers.</p>
+				<p>Here is a list of members who are active ColdFusion bloggers.</p>
 				<ul class="borderedlist iconlist">
-					<li><a href="http://www.trajiklyhip.com/blog" title="Aaron West's Blog" target="_blank">Aaron West</a></li>
+					<li><a href="http://www.aaronwest.net/blog" title="Aaron West's Blog" target="_blank">Aaron West</a></li>
 					<li><a href="http://jeremiahx.com" title="The Blog of J.J. Merrick" target="_blank">J.J. Merrick</a></li>
-					<li><a href="http://blog.cutterscrossing.com" title="The Blog of Cutter Blades" target="_blank">Cutter Blades</a></li>
+					<li><a href="http://www.cfgears.com" title="Eric Cobb's Blog'" target="_blank">Eric Cobb</a></li>
 					<li><a href="http://coldfusionbloggers.org/" title="ColdFusionBloggers.org" target="_blank">ColdFusion Bloggers</a></li>
 				</ul>
 			</div>

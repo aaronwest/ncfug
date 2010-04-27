@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+License:
+Copyright 2008 GreatBizTools, LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+Copyright: GreatBizTools, LLC
+$Id: mach-ii_dashboard.xml 1125 2008-10-26 23:54:40Z peterfarrell $
+
+Created version: 1.0.0
+Updated version: 1.0.0
+
+Notes:
+-->
+<!DOCTYPE mach-ii PUBLIC
+	"-//Mach-II//DTD Mach-II Configuration 1.6.0//EN"
+	"http://www.mach-ii.com/dtds/mach-ii_1_6_0.dtd">
+
+<mach-ii version="1.6">
+	<!--PROPERTIES -->
+	<properties>
+		<property name="applicationRoot" value="/MachIIDashboard"/>
+		<property name="defaultEvent" value="config.index"/>
+		<property name="udfs" type="MachIIDashboard.properties.Udfs"/>
+		
+		<property name="majorVersion" value="1.0.0"/>
+		<property name="minorVersion" value="1125"/>
+		
+		<!-- Set by ApplicationProperty -->
+		<property name="sessionManagementScope" value=""/>
+		
+		<property name="application" type="MachIIDashboard.properties.ApplicationProperty"/>
+		<!-- 
+		<property name="logging" type="MachII.logging.LoggingProperty">
+			<parameters>
+				<parameter name="Exception">
+					<struct>
+						<key name="type" value="MachIIDashboard.logging.loggers.ExceptionLog.Logger"/>
+						<key name="loggingEnabled" value="false"/>
+						<key name="loggingLevel" value="all"/>
+						<key name="dashboardModuleName" value="${moduleName}"/>
+					</struct>
+				</parameter>
+			</parameters>
+		</property>
+		 -->
+	</properties>
+	
+	<!-- LISTENERS -->
+	<listeners>
+		<listener name="caching" type="MachIIDashboard.listeners.CachingListener"/>
+		<listener name="config" type="MachIIDashboard.listeners.ConfigListener"/>
+		<listener name="debugging" type="MachIIDashboard.listeners.DebuggingListener"/>
+		<listener name="logging" type="MachIIDashboard.listeners.LoggingListener"/>
+	</listeners>
+	
+	<!-- EVENT-FILTERS -->
+	<event-filters> 
+		<event-filter name="serveFile" type="MachIIDashboard.filters.ServeFileFilter">
+			<parameters>
+				<parameter name="basePath" value="/MachIIDashboard/assets"/>
+				<parameter name="contentTypes">
+					<struct>
+						<key name="png" value="image/png"/>
+						<key name="gif" value="image/gif"/>
+						<key name="jpg" value="image/jpeg"/>
+						<key name="css" value="text/css"/>
+						<key name="ico" value="image/x-icon"/>
+						<key name="js" value="application/x-javascript"/>
+					</struct>
+				</parameter>
+			</parameters>
+		</event-filter>
+	</event-filters>
+	
+	<!-- PLUGINS -->
+	<plugins runParent="none">
+		<plugin name="login" type="MachIIDashboard.plugins.LoginPlugin">
+			<parameters>
+				<parameter name="unprotectedEvents">
+					<array>
+						<element value="sys.login"/>
+						<element value="sys.serveAsset"/>
+					</array>
+				</parameter>
+			</parameters>
+		</plugin>
+	</plugins>
+	
+	<!-- EVENTS-HANDLERS -->
+	<event-handlers>
+		<!-- config -->
+		<event-handler event="config.index" access="public">
+			<event-arg name="meta.title" value="Config"/>
+			<event-arg name="meta.refresh" value="30"/>
+			<event-arg name="suppressDebug" value="true"/>
+			<notify listener="config" method="getModuleData" resultArg="moduleData"/>
+			<notify listener="config" method="getBaseData" resultArg="baseData"/>
+			<notify listener="config" method="getMemoryData" resultArg="memoryData"/>
+			<view-page name="config.index" contentArg="layout.content"/>
+			<execute subroutine="doLayout"/>
+		</event-handler>
+		<event-handler event="config.reloadModule" access="public">
+			<notify listener="config" method="reloadModule"/>
+			<redirect event="config.index" persist="true"/>
+		</event-handler>
+		<event-handler event="config.reloadBaseApp" access="public">
+			<notify listener="config" method="reloadBaseApp"/>
+			<redirect event="config.index" persist="true"/>
+		</event-handler>
+		<event-handler event="config.reloadModuleColdSpring" access="public">
+			<notify listener="config" method="reloadModuleColdSpring"/>
+			<redirect event="config.index" persist="true"/>
+		</event-handler>
+		<event-handler event="config.reloadBaseAppColdSpring" access="public">
+			<notify listener="config" method="reloadBaseAppColdSpring"/>
+			<redirect event="config.index" persist="true"/>
+		</event-handler>
+		
+		<!-- logging --> 
+		<event-handler event="logging.index" access="public">
+			<event-arg name="meta.title" value="Logging"/>
+			<event-arg name="suppressDebug" value="true"/>
+			<notify listener="logging" method="getLoggers" resultArg="loggers"/>
+			<view-page name="logging.index" contentArg="layout.content"/>
+			<execute subroutine="doLayout"/>
+		</event-handler>
+		<event-handler event="logging.enableDisableLogger" access="public">
+			<notify listener="logging" method="enableDisableLogger"/>
+			<redirect event="logging.index" persist="true"/>
+		</event-handler>
+		<event-handler event="logging.changeLoggingLevel" access="public">
+			<notify listener="logging" method="changeLoggingLevel"/>
+			<redirect event="logging.index" persist="true"/>
+		</event-handler>
+		<event-handler event="logging.enableDisableAll" access="public">
+			<notify listener="logging" method="enableDisableAll"/>
+			<redirect event="logging.index" persist="true"/>
+		</event-handler>
+		
+		<!-- caching --> 
+		<event-handler event="caching.index" access="public">
+			<event-arg name="meta.title" value="Caching"/>
+			<event-arg name="meta.refresh" value="30"/>
+			<event-arg name="suppressDebug" value="true"/>
+			<notify listener="caching" method="getCacheStrategies" resultArg="cacheStrategies"/>
+			<view-page name="caching.index" contentArg="layout.content"/>
+			<execute subroutine="doLayout"/>
+		</event-handler>
+		<event-handler event="caching.enableDisableAll" access="public">
+			<notify listener="caching" method="enableDisableAll"/>
+			<redirect event="caching.index" persist="true"/>
+		</event-handler>
+		<event-handler event="caching.reapAll" access="public">
+			<notify listener="caching" method="reapAll"/>
+			<redirect event="caching.index" persist="true"/>
+		</event-handler>
+		<event-handler event="caching.flushAll" access="public">
+			<notify listener="caching" method="flushAll"/>
+			<redirect event="caching.index" persist="true"/>
+		</event-handler>
+		<event-handler event="caching.enableDisableCacheStrategy" access="public">
+			<notify listener="caching" method="enableDisableCacheStrategy"/>
+			<redirect event="caching.index" persist="true"/>
+		</event-handler>
+		<event-handler event="caching.reapCacheStrategy" access="public">
+			<notify listener="caching" method="reapCacheStrategy"/>
+			<redirect event="caching.index" persist="true"/>
+		</event-handler>
+		<event-handler event="caching.flushCacheStrategy" access="public">
+			<notify listener="caching" method="flushCacheStrategy"/>
+			<redirect event="caching.index" persist="true"/>
+		</event-handler>
+		
+		<!-- debugging -->
+		<event-handler event="debugging.index" access="public">
+			<event-arg name="meta.title" value="Debugging"/>
+			<event-arg name="suppressDebug" value="true"/>
+			<notify listener="debugging" method="getExceptionViewer" resultArg="exceptionViewer"/>
+			<notify listener="debugging" method="getExceptionViewerDataStorage" resultArg="dataStorage"/>
+			<view-page name="debugging.index" contentArg="layout.content"/>
+			<execute subroutine="doLayout"/>
+		</event-handler>
+		<event-handler event="debugging.enableDisableExceptionViewer" access="public">
+			<notify listener="debugging" method="enableDisableExceptionViewer"/>
+			<redirect event="debugging.index" persist="true"/>
+		</event-handler>
+		<event-handler event="debugging.changeSnapshotLevel" access="public">
+			<notify listener="debugging" method="changeSnapshotLevel"/>
+			<redirect event="debugging.index" persist="true"/>
+		</event-handler>
+		
+		<event-handler event="debugging.flushExceptionViewerDataStorage" access="public">
+			<notify listener="debugging" method="flushExceptionViewerDataStorage"/>
+			<redirect event="debugging.index" persist="true"/>
+		</event-handler>
+		
+		<!-- sys -->
+		<event-handler event="sys.login" access="private">
+			<event-arg name="meta.title" value="Login"/>
+			<event-arg name="suppressDebug" value="true"/>
+			<event-arg name="suppressHeadElements" value="true"/>
+			<view-page name="sys.login" contentArg="layout.content"/>
+			<execute subroutine="doLayout"/>
+		</event-handler>
+		<event-handler event="sys.serveAsset" access="public">
+			<event-arg name="suppressDebug" value="true"/>
+			<filter name="serveFile"/>
+		</event-handler>
+	</event-handlers>
+	
+	<!-- SUBROUTINES -->
+	<subroutines>
+		<subroutine name="doLayout">
+			<view-page name="layout.header" contentArg="layout.header"/>
+			<view-page name="layout.footer" contentArg="layout.footer"/>
+			<view-page name="layout.wrapper"/>
+		</subroutine>
+	</subroutines>
+	
+	<!-- PAGE-VIEWS -->
+	<page-views>
+		<!-- caching -->
+		<page-view name="caching.index" page="/views/caching/index.cfm"/>
+		
+		<!-- config -->
+		<page-view name="config.index" page="/views/config/index.cfm"/>
+		
+		<!-- debugging -->
+		<page-view name="debugging.index" page="/views/debugging/index.cfm"/>
+		
+		<!-- layout -->
+		<page-view name="layout.wrapper" page="/views/layout/wrapper.cfm"/>
+		<page-view name="layout.header" page="/views/layout/header.cfm"/>
+		<page-view name="layout.footer" page="/views/layout/footer.cfm"/>
+
+		<!-- logging -->
+		<page-view name="logging.index" page="/views/logging/index.cfm"/>
+		
+		<!-- login -->
+		<page-view name="sys.login" page="/views/sys/login.cfm"/>
+	</page-views>
+
+</mach-ii>

@@ -35,7 +35,7 @@
 		<property name="skin" value="ncfug" />
 		<property name="rbFile" value="/i18n/main" />
 		<property name="rbLocale" value="en_US" />
-		<property name="copyrightNotice" value="Copyright © 2008 Nashville ColdFusion User Group" />
+		<property name="copyrightNotice" value="Copyright ï¿½ 2008 Nashville ColdFusion User Group" />
 		<property name="defaultState" value="TN" />
 		<property name="defaultStateName" value="Tennessee" />
 		<property name="defaultCountry" value="US" />
@@ -77,6 +77,17 @@
 		<plugin name="checkAuthentication" type="org.capitolhillusergroup.plugins.CheckAuthentication" />
 		<!--<plugin name="tracePlugin" type="MachII.plugins.TracePlugin" />-->
 	</plugins>
+	
+	<!-- MODULES -->
+	<!-- <modules>
+		<module name="dashboard" file="/MachIIDashboard/config/mach-ii_dashboard.xml">
+			<mach-ii>
+				<properties>
+					<property name="password" value="letmein" />
+				</properties>
+			</mach-ii>
+		</module>
+	</modules> -->
 	
 	<!-- EVENT-FILTERS -->
 	<event-filters>
