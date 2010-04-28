@@ -1,0 +1,12 @@
+The Nashville ColdFusion User Group publishes our Web site code
+free of charge, for anyone to use or reference. All code is governed
+by Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0).
+
+http://www.ncfug.com
+
+Our Web site is based on the open source ColdFusion User Group Manager
+application, nicknamed CHUG. This MVC application makes use of Mach-ii
+(an MVC ColdFusion framework) and ColdSpring (an Inversion of Control
+or IoC ColdFusion framework).
+
+http://code.google.com/p/chug/
