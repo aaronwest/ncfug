@@ -1,5 +1,6 @@
-'.DS_Store
+.DS_Store
 .project
 database/
 archived/
 testing/
+_apache_config/

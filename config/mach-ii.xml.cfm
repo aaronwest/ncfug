@@ -27,7 +27,7 @@
 		<property name="adminEmail" value="ecobb@ecartech.com" />
 		<property name="contactName" value="Eric Cobb" />
 		<property name="contactEmail" value="ecobb@ecartech.com" />
-		<property name="notificationFromAddress" value="info@ncfug.com" />
+		<property name="notificationFromAddress" value="ecobb@ecartech.com" />
 		<property name="baseURL" value="http://www.ncfug.com/" />
 		<property name="personImageFilePath" value="uploads/personImages/" />
 		<property name="presentationFilePath" value="uploads/presentations/" />
